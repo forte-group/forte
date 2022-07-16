@@ -1,0 +1,12 @@
+#leaderboard {
+    display: grid;
+    grid-template-areas: "leaders scores"
+}
+
+#leaders {
+    grid-area: leaders
+}
+
+#scores {
+    grid-area: scores
+}
