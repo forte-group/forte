@@ -3,7 +3,7 @@
     width: 100px;
     border: solid 2px black;
     border-radius: 50%;
-    background-color: #539987;
+    background-color: #72DDF7;
 }
 
 label img {
@@ -21,7 +21,7 @@ label img {
     display: flex;
     flex-direction: column;
     border: solid 3px #615756;
-    background-color: #B8E0D2;
+    background-color: #8093F1;
     margin: 15px;
 }
 
