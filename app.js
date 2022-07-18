@@ -4,22 +4,22 @@ import createUser from './components/User.js';
 import createSequence from './components/Sequence.js';
 import createNoteButtons from './components/NoteButtons.js';
 import createEnterGuess from './components/EnterGuess.js';
-import createBackspace from './components/Backspace.js';
+// import createBackspace from './components/Backspace.js';
 
 // State
 export const synth = new Tone.Synth().toDestination();
 
 let user = null;
 const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
-const noteInputButtons = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+// const noteInputButtons = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
 let sequenceLength = 8;
 let maxGuesses = 4;
-let numberOfGuesses = 0;
-let currentColumn = 0;
-let currentRow = 0;
+// let numberOfGuesses = 0;
+// let currentColumn = 0;
+// let currentRow = 0;
 
 // make state that is currentRow, initialized to 0
 // enter button scores currentRow, increments currentRow
@@ -127,15 +127,15 @@ handlePageLoad();
 //     }
 // };
 
-const enterANote = (event) => {
-    if (currentColumn < 8) {
-        document.querySelector('#column' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
-        currentColumn++;
-        currentGuess.push();
-    }
-};
+// const enterANote = (event) => {
+//     if (currentColumn < 8) {
+//         document.querySelector('#column' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
+//         currentColumn++;
+//         currentGuess.push();
+//     }
+// };
 
-window
+// noteButton.addEvent
 
 
 
