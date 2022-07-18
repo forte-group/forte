@@ -1,30 +1,38 @@
-import { getAuthRedirect } from '../utils.js';
 export default function createUser(root, { handleSignOut }) {
 
-    return ({ user }) => {
-        root.innerHTML = '';
+    return ({ user, profile }) => {
 
-        if (user) {
-            const nameDisplay = document.createElement('span');
-            const username = user?.email.split('@')[0];
+        root.innerHTML = '';
+        const nameDisplay = document.createElement('span');
+        const avatarDisplay = document.createElement('img');
+
+        if (profile) {
+            const avatar = profile.avatar_url;
+
+            const username = profile.username;
             nameDisplay.textContent = username;
 
-            const signOutLink = document.createElement('a');
-            signOutLink.textContent = 'Sign out';
-            signOutLink.href = '';
-            signOutLink.addEventListener('click', () => {
-                handleSignOut();
-            });
+            if (avatar) {
+                avatarDisplay.src = avatar;
+                avatarDisplay.classList.add('avatar');
 
-            root.append(nameDisplay, signOutLink);
+                nameDisplay.prepend(avatarDisplay);
+            }
         }
-        else {
-            const signInLink = document.createElement('a');
-            signInLink.textContent = 'Sign in';
-            signInLink.href = getAuthRedirect();
 
-            root.append(signInLink);
+        if (!profile && user) {
+            const username = user?.email.split('@')[0];
+            nameDisplay.textContent = username;
         }
+
+        const signOutLink = document.createElement('a');
+        signOutLink.textContent = 'Sign out';
+        signOutLink.href = '';
+        signOutLink.addEventListener('click', () => {
+            handleSignOut();
+        });
+
+        root.append(nameDisplay, avatarDisplay, signOutLink);
     };
 }
 
