@@ -11,11 +11,11 @@ export const synth = new Tone.Synth().toDestination();
 
 let user = null;
 const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
-// const noteInputButtons = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+// const noteInputButtons = document.querySelector('.note-button');
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
-let sequenceLength = 8;
+// let sequenceLength = 8;
 let maxGuesses = 4;
 // let numberOfGuesses = 0;
 // let currentColumn = 0;
@@ -58,42 +58,29 @@ function handleEnterGuess() {
         handleGameEnd();
     }
     currentGuess = [];
+    // currentRow++;
     display();
 }
 
-let fragment = document.createDocumentFragment();
 
 let generateGameGrid = () => {
     
     let grid = document.querySelector('#game-grid');
     grid.innerHTML = '';
 
-    let i = 0; i < maxGuesses; i++;
-    Array.from({ length: maxGuesses }).forEach(() => {
+    for (let i = 0; i < maxGuesses; i++) {
         let row = document.createElement('div');
-        row.classList.add('row');
+        row.className = 'row';
         row.id = 'row-' + i;
-
-        let j = 0; j < 8; j++;
-        Array.from({ length: sequenceLength }).forEach(() => {
+        grid.appendChild(row);
+        for (let j = 0; j < 8; j++) {
             let column = document.createElement('div');
-            column.classList.add('column');
+            column.className = 'column';
             column.id = 'column-' + i + '-' + j;
-            
             row.appendChild(column);
-        });
-        
-        fragment.appendChild(row);
-    });
-
-    grid.appendChild(fragment);
-
+        }
+    }
 };
-
-//const checkForMatch = (sequence) => {
-// return Array(guessedSequence) === answerSequence;
-//}
-
 
 // Components 
 const User = createUser(
@@ -127,15 +114,23 @@ handlePageLoad();
 //     }
 // };
 
-// const enterANote = (event) => {
+// function enterANote(event) {
 //     if (currentColumn < 8) {
 //         document.querySelector('#column' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
 //         currentColumn++;
-//         currentGuess.push();
+//         currentGuess.push(event.target.innerText);
 //     }
-// };
+// }
 
-// noteButton.addEvent
+// noteInputButtons.addEventListener('click', () => {
+//     enterANote();
+// });
+
+
+
+
+
+
 
 
 
