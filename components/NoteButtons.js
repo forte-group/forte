@@ -9,6 +9,7 @@ export default function createNoteButtons(root) {
     };
 }
 
+
 function NoteButton({ note, currentGuess }) {
     const button = document.createElement('button');
     button.classList.add('note-button');
