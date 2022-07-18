@@ -1,22 +1,22 @@
-import { synth } from './Sequence.js';
+import { synth } from '../app.js';
 
 export default function createNoteButtons(root) {
 
-    return ({ notes, guessedNotes }) => {
+    return ({ notes, currentGuess }) => {
         for (const note of notes) {
-            root.append(NoteButton({ note, guessedNotes }));
+            root.append(NoteButton({ note, currentGuess }));
         }
     };
 }
 
-function NoteButton({ note, guessedNotes }) {
+function NoteButton({ note, currentGuess }) {
     const button = document.createElement('button');
     button.classList.add('note-button');
 
     button.addEventListener('click', () => {
         synth.triggerAttackRelease(note, '8n');
-        if (guessedNotes.length < 8) {
-            guessedNotes.push(note);
+        if (currentGuess.length < 8) {
+            currentGuess.push(note);
         }
     });
 

@@ -1,4 +1,6 @@
-export const synth = new Tone.Synth().toDestination();
+import { synth } from '../app.js';
+
+// duration of 8th note = 500 ms
 
 export default function createSequence(root) {
 
@@ -17,6 +19,10 @@ export default function createSequence(root) {
             for (let i = 0; i < sequence.length; i++) {
                 synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.5));
             }
+            playButton.disabled = true;
+            setTimeout(() => {
+                playButton.disabled = false;
+            }, 4000);
         });
 
     };
