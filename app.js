@@ -20,7 +20,7 @@ let guessedSequences = [];
 
 
 // let sequenceLength = 8;
-let numberOfGuesses = 0;
+// let numberOfGuesses = 0;
 // let currentColumn = 0;
 // let currentRow = 0;
 
