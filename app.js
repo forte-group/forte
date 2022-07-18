@@ -68,13 +68,17 @@ let generateGameGrid = () => {
     let grid = document.querySelector('#game-grid');
     grid.innerHTML = '';
 
+    let i = 0; i < maxGuesses; i++;
     Array.from({ length: maxGuesses }).forEach(() => {
         let row = document.createElement('div');
         row.classList.add('row');
-        
+        row.id = 'row-' + i;
+
+        let j = 0; j < 8; j++;
         Array.from({ length: sequenceLength }).forEach(() => {
             let column = document.createElement('div');
             column.classList.add('column');
+            column.id = 'column-' + i + '-' + j;
             
             row.appendChild(column);
         });
@@ -115,13 +119,23 @@ handlePageLoad();
 
 // next steps:
     // - enter button to submit guess
-const goBack = () => {
-    if (currentColumn > 0) {
-        (currentColumn - 1).innerText = ''; 
-        currentColumn--;
-        currentGuess.pop();
+// const goBack = () => {
+//     if (currentColumn > 0) {
+//         (currentColumn - 1).innerText = ''; 
+//         currentColumn--;
+//         currentGuess.pop();
+//     }
+// };
+
+const enterANote = (event) => {
+    if (currentColumn < 8) {
+        document.querySelector('#column' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
+        currentColumn++;
+        currentGuess.push();
     }
 };
+
+window
 
 
 
