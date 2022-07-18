@@ -11,15 +11,15 @@ export const synth = new Tone.Synth().toDestination();
 
 let user = null;
 const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
-const noteInputButtons = document.querySelector('.note-button');
+// const noteInputButtons = document.querySelector('.note-button');
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
-let sequenceLength = 8;
+// let sequenceLength = 8;
 let maxGuesses = 4;
 // let numberOfGuesses = 0;
-let currentColumn = 0;
-let currentRow = 0;
+// let currentColumn = 0;
+// let currentRow = 0;
 
 // make state that is currentRow, initialized to 0
 // enter button scores currentRow, increments currentRow
