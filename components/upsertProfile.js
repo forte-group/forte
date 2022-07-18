@@ -29,7 +29,7 @@ export default function createUpsertProfile(form, handleUpsertProfile) {
             const avatar = profiles.avatar_url;
 
             if (username) nameInput.value = username;
-            if (avatar) previewImage.src = avatar_url;
+            if (avatar) previewImage.src = avatar;
         }
     };
 
