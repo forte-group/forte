@@ -8,7 +8,7 @@ export default function createUpsertProfile(form, handleUpsertProfile) {
 
         const data = {
             username: formdata.get('username'),
-            avatar: formdata.get('avatar_url'),
+            avatar: formdata.get('avatar'),
         };
 
         handleUpsertProfile(data);
@@ -23,10 +23,10 @@ export default function createUpsertProfile(form, handleUpsertProfile) {
         previewImage.src = URL.createObjectURL(file);
     });
 
-    return ({ profiles }) => {
-        if (profiles) {
-            const username = profiles.username;
-            const avatar = profiles.avatar_url;
+    return ({ profile }) => {
+        if (profile) {
+            const username = profile.username;
+            const avatar = profile.avatar_url;
 
             if (username) nameInput.value = username;
             if (avatar) previewImage.src = avatar;

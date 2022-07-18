@@ -34,7 +34,7 @@ export async function updateProfile(profile) {
 }
 
 //allow user to update profile picture
-const BUCKET_NAME = 'forte';
+const BUCKET_NAME = 'avatars';
 
 export async function uploadAvatar(userId, imageFile) {
     const imageName = `${userId}/${imageFile.name}`;
@@ -49,7 +49,7 @@ export async function uploadAvatar(userId, imageFile) {
         return null;
     }
 
-    const url = bucket.getPublicUrl(data.Key.replace(`${BUCKET_NAME}`)).publicURL;
+    const url = bucket.getPublicUrl(data.Key.replace(`${BUCKET_NAME}/`, '')).publicURL;
 
     return url;
 }

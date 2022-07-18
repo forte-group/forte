@@ -1,17 +1,18 @@
 //imports
-import { getProfile, getUser, signOut, updateProfile, uploadAvatar } from '../services/auth - service.js';
+import { getProfile, getUser, signOut, updateProfile, uploadAvatar } from '../services/auth-service.js';
 import createUser from '../components/User.js';
 import createUpsertProfile from '../components/upsertProfile.js';
 
 //state
 let user = null;
-let profiles = [];
+let profile = null;
 
 //action handlers
 async function handlePageLoad() {
     user = getUser();
 
-    profiles = await getProfile();
+    profile = await getProfile();
+    console.log(profile);
     display();
 }
 
@@ -26,8 +27,8 @@ async function handleUpsertProfile({ username, avatar }) {
         username: username,
     };
 
-    if (url) update.avatar = url;
-    profiles = await updateProfile(update);
+    if (url) update.avatar_url = url;
+    profile = await updateProfile(update);
 
     location.assign('/');
 }
@@ -41,8 +42,8 @@ const User = createUser(document.querySelector('#user'), { handleSignOut });
 const UpsertProfile = createUpsertProfile(document.querySelector('.profile-form'), handleUpsertProfile);
 
 function display() {
-    User({ user });
-    UpsertProfile({ profiles: profiles });
+    User({ user, profile });
+    UpsertProfile({ profile: profile });
 }
 
 handlePageLoad();
