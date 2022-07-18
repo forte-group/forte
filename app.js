@@ -58,7 +58,7 @@ function handleEnterGuess() {
         handleGameEnd();
     }
     currentGuess = [];
-    currentRow++;
+    // currentRow++;
     display();
 }
 
