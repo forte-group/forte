@@ -26,8 +26,27 @@
     </header>
 
     <main>
+        <div id="sequence">
+            <div id="play-sequence">
+                <span>Play Sequence:</span>
+                <button id="play-button">▶︎</button>
+            </div>
+            <div id="sequence-display"></div>
+        </div>
         <div id="game-grid">
             
+        </div>
+        <div id="note-buttons"></div>
+        <div id="controls">
+            <button id="backspace">Backspace</button>
+            <button id="enter">Enter</button>
+        </div>
+        <div class="pop-up hidden">
+            <span>You <span id="result-display"></span></span>
+            <span class="streak">Current Streak: <span id="current-streak"></span></span>
+            <span class="streak">Longest Streak: <span id="longest-streak"></span></span>
+            <button>Play Again</button>
+            <button>View Leaderboard</button>
         </div>
     </main>
 
