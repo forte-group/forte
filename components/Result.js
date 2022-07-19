@@ -1,6 +1,6 @@
 export default function createResult(root) {
 
-    return ({ result, currentStreak, longestStreak, end }) => { // need to pass in end
+    return ({ result, currentStreak, longestStreak, end, sequence }) => { // need to pass in end
         root.classList.add('hidden');
         if (end) {
             setTimeout(() => {
@@ -16,6 +16,23 @@ export default function createResult(root) {
         else {
             h2result.textContent = 'You Lost!';
         }
+
+        const h3Sequence = document.createElement('h3');
+        h3Sequence.textContent = 'Sequence:';
+
+        const sequenceDiv = document.createElement('div');
+        sequenceDiv.id = 'sequence-div';
+        for (const note of sequence) {
+            const noteSpan = document.createElement('span');
+            if (note.includes('5')) {
+                noteSpan.textContent = note.split('')[0] + ' (high)';
+            }
+            else {
+                noteSpan.textContent = note.split('')[0];
+            }
+            sequenceDiv.append(noteSpan);
+        }
+        sequenceDiv.prepend(h3Sequence);
 
         const currentDiv = document.createElement('div');
         currentDiv.classList.add('streak-div');
@@ -50,6 +67,6 @@ export default function createResult(root) {
 
         linkDiv.append(playAgainLink, leaderBoardLink);
 
-        root.append(h2result, currentDiv, longestDiv, linkDiv);
+        root.append(h2result, sequenceDiv, currentDiv, longestDiv, linkDiv);
     };
 }
