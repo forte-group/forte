@@ -4,6 +4,7 @@ import createUser from './components/User.js';
 import createSequence from './components/Sequence.js';
 import createNoteButtons from './components/NoteButtons.js';
 import createEnterGuess from './components/EnterGuess.js';
+import createGameGrid from './components/GameGrid.js';
 // import createBackspace from './components/Backspace.js';
 
 // State
@@ -15,8 +16,10 @@ const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
+let correctNotes = [];
+
+let currentRow = 0;
 // let sequenceLength = 8;
-let maxGuesses = 4;
 // let numberOfGuesses = 0;
 // let currentColumn = 0;
 // let currentRow = 0;
@@ -44,6 +47,14 @@ function generateSequence() {
     }
 }
 
+function handleGuessNote(note) {
+    synth.triggerAttackRelease(note, '8n');
+    if (currentGuess.length < 8) {
+        currentGuess.push(note);
+    }
+    display();
+}
+
 function handleGameEnd() {
     //brings up popup
     // says won or lost
@@ -57,30 +68,20 @@ function handleEnterGuess() {
     if (match || guessedSequences.length === 4) {
         handleGameEnd();
     }
+    else if (!match) {
+        let correct = [];
+        for (let i = 0; i < currentGuess.length; i++) {
+            if (currentGuess[i] === sequence[i]) {
+                correct.push(i);
+            }
+        }
+        correctNotes.push(correct);
+
+    }
     currentGuess = [];
-    // currentRow++;
+    if (currentRow < 3) currentRow++;
     display();
 }
-
-
-let generateGameGrid = () => {
-    
-    let grid = document.querySelector('#game-grid');
-    grid.innerHTML = '';
-
-    for (let i = 0; i < maxGuesses; i++) {
-        let row = document.createElement('div');
-        row.className = 'row';
-        row.id = 'row-' + i;
-        grid.appendChild(row);
-        for (let j = 0; j < 8; j++) {
-            let column = document.createElement('div');
-            column.className = 'column';
-            column.id = 'column-' + i + '-' + j;
-            row.appendChild(column);
-        }
-    }
-};
 
 // Components 
 const User = createUser(
@@ -89,24 +90,26 @@ const User = createUser(
 );
 
 const Sequence = createSequence(document.querySelector('#sequence'));
-const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'));
+const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });
 const EnterButton = createEnterGuess(document.querySelector('#enter'), { handleEnterGuess });
 // const BackspaceButton = createBackspace(document.querySelector('#backspace'), { goBack });
+const gameGrid = createGameGrid(document.querySelector('#game-grid'));
 
 function display() {
     User({ user });
-    generateGameGrid();
+    // generateGameGrid();
     Sequence({ sequence });
-    NoteButtons({ notes, currentGuess });
+    NoteButtons({ notes });
     EnterButton({ currentGuess });
     // BackspaceButton();
+    gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
 handlePageLoad();
 
 // next steps:
     // - enter button to submit guess
-// const goBack = () => {
+// function backspace() {
 //     if (currentColumn > 0) {
 //         (currentColumn - 1).innerText = ''; 
 //         currentColumn--;
@@ -116,7 +119,7 @@ handlePageLoad();
 
 // function enterANote(event) {
 //     if (currentColumn < 8) {
-//         document.querySelector('#column' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
+//         document.querySelector('#column' + '-' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
 //         currentColumn++;
 //         currentGuess.push(event.target.innerText);
 //     }
