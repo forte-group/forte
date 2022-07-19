@@ -37,8 +37,6 @@ async function handlePageLoad() {
 
     currentStreak = profile.currentStreak;
     longestStreak = profile.longestStreak;
-
-    console.log(currentStreak, longestStreak);
     
     display();
 }
