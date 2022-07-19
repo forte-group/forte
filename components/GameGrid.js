@@ -17,16 +17,18 @@ export default function createGameGrid(root) {
 
     return ({ currentGuess, correctNotes, guessedSequences, currentRow }) => {
 
-        for (let i = 0; i < currentGuess.length; i++) {
-            const cell = root.querySelector(`#column-${currentRow}-${i}`);
-            cell.textContent = currentGuess[i].split('')[0];
+        if (currentRow < 4) {
+            for (let i = 0; i < currentGuess.length; i++) {
+                const cell = root.querySelector(`#column-${currentRow}-${i}`);
+                cell.textContent = currentGuess[i].split('')[0];
+            }
+
+            for (let i = currentGuess.length; i < 8; i++) {
+                const blankCell = root.querySelector(`#column-${currentRow}-${i}`);
+                blankCell.textContent = '';
+            }
         }
 
-        for (let i = currentGuess.length; i < 8; i++) {
-            const blankCell = root.querySelector(`#column-${currentRow}-${i}`);
-            blankCell.textContent = '';
-        }
-        
         if (guessedSequences.length) {
             for (let i = 0; i < guessedSequences[currentRow - 1].length; i++) {
                 const completedCell = root.querySelector(`#column-${currentRow - 1}-${i}`);

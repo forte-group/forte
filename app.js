@@ -37,7 +37,9 @@ async function handlePageLoad() {
 
     currentStreak = profile.currentStreak;
     longestStreak = profile.longestStreak;
-    
+
+    console.log(currentStreak, longestStreak);
+
     display();
 }
 
@@ -78,6 +80,7 @@ async function handleGameEnd(result) {
     }
 
     const streakUpdate = {
+        id: user.id,
         longestStreak,
         currentStreak
     };
@@ -87,23 +90,23 @@ async function handleGameEnd(result) {
 
 function handleEnterGuess() {
     guessedSequences.push(currentGuess);
-    const match = checkForMatch(currentGuess, sequence);
+    let match = checkForMatch(currentGuess, sequence);
+    console.log(currentGuess, sequence, match);
     if (match || guessedSequences.length === 4) {
         result = match ? 1 : -1;
+        console.log(result);
         handleGameEnd(result);
     }
-    else if (!match) {
-        let correct = [];
-        for (let i = 0; i < currentGuess.length; i++) {
-            if (currentGuess[i] === sequence[i]) {
-                correct.push(i);
-            }
+    let correct = [];
+    for (let i = 0; i < currentGuess.length; i++) {
+        if (currentGuess[i] === sequence[i]) {
+            correct.push(i);
         }
-        correctNotes.push(correct);
-
     }
+    correctNotes.push(correct);
+
     currentGuess = [];
-    if (currentRow < 3) currentRow++;
+    if (currentRow < 4) currentRow++;
     display();
 }
 
