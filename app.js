@@ -29,6 +29,7 @@ async function handlePageLoad() {
     protectPage(user);
 
     profile = await getProfile();
+    if (!profile) location.replace('./profile');
     generateSequence();
     
     display();
