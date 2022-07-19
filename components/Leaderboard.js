@@ -10,6 +10,7 @@ export default function createLeaderboard(root) {
 
 function Leader({ streak }) {
     const li = document.createElement('li');
+    li.classList.add('leaderboard-element');
 
     const leaderDiv = document.createElement('div');
     leaderDiv.classList.add('leader');
@@ -19,14 +20,15 @@ function Leader({ streak }) {
     const leaderSpan = document.createElement('span');
     leaderSpan.classList.add('leader-name');
 
-    img.src = streak.profiles.avatar_url;
-    leaderSpan.textContent = streak.profiles.username;
+    img.src = streak.avatar_url;
+    leaderSpan.textContent = streak.username;
 
     const scoreDiv = document.createElement('div');
+    scoreDiv.classList.add('score-div');
 
     const scoreSpan = document.createElement('span');
     scoreSpan.classList.add('score');
-    scoreSpan.textContent = streak.longest;
+    scoreSpan.textContent = streak.longestStreak;
 
     leaderDiv.append(img, leaderSpan);
     scoreDiv.append(scoreSpan);
