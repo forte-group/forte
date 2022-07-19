@@ -57,7 +57,7 @@ function handleBackspace() {
     display();
 }
 
-function handleGameEnd(result) {
+function handleGameEnd() { //need to pass in result
     end = true;
     //brings up popup
     // says won or lost

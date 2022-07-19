@@ -1,6 +1,6 @@
 export default function createResult(root) {
 
-    return ({ result, end }) => {
+    return ({ result }) => { // need to pass in end
         // root.classList.add('hidden');
         // if (end) root.classList.remove('hidden');
         root.innerHTML = '';
