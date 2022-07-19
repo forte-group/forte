@@ -67,7 +67,7 @@
 
 #user {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 10px;
     align-items: center;
 }
@@ -79,6 +79,8 @@
     border-radius: 50%;
     background-color: #72DDF7;
 }
+
+
 
 #forte-img {
     height: 100px;
