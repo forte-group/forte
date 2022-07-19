@@ -1,34 +1,34 @@
-import { getUser, signOut } from './services/auth-service.js';
+import { getProfile, getUser, signOut } from './services/auth-service.js';
 import { checkForMatch, protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createSequence from './components/Sequence.js';
 import createNoteButtons from './components/NoteButtons.js';
 import createEnterGuess from './components/EnterGuess.js';
-// import createBackspace from './components/Backspace.js';
+import createGameGrid from './components/GameGrid.js';
+import createBackspace from './components/Backspace.js';
+import createResult from './components/Result.js';
 
 // State
 export const synth = new Tone.Synth().toDestination();
 
 let user = null;
+let profile = null;
 const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
-// const noteInputButtons = document.querySelector('.note-button');
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
-// let sequenceLength = 8;
-let maxGuesses = 4;
-// let numberOfGuesses = 0;
-// let currentColumn = 0;
-// let currentRow = 0;
+let correctNotes = [];
 
-// make state that is currentRow, initialized to 0
-// enter button scores currentRow, increments currentRow
+let currentRow = 0;
+let end = false;
+let result = -1;
 
 // Action Handlers
 async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
+    profile = await getProfile();
     generateSequence();
     
     display();
@@ -44,7 +44,21 @@ function generateSequence() {
     }
 }
 
-function handleGameEnd() {
+function handleGuessNote(note) {
+    synth.triggerAttackRelease(note, '8n');
+    if (currentGuess.length < 8) {
+        currentGuess.push(note);
+    }
+    display();
+}
+
+function handleBackspace() {
+    currentGuess.pop();
+    display();
+}
+
+function handleGameEnd() { //need to pass in result
+    end = true;
     //brings up popup
     // says won or lost
     // gives current streak and longest streak
@@ -55,32 +69,23 @@ function handleEnterGuess() {
     guessedSequences.push(currentGuess);
     const match = checkForMatch(currentGuess, sequence);
     if (match || guessedSequences.length === 4) {
-        handleGameEnd();
+        result = match ? 1 : -1;
+        handleGameEnd(result);
+    }
+    else if (!match) {
+        let correct = [];
+        for (let i = 0; i < currentGuess.length; i++) {
+            if (currentGuess[i] === sequence[i]) {
+                correct.push(i);
+            }
+        }
+        correctNotes.push(correct);
+
     }
     currentGuess = [];
-    // currentRow++;
+    if (currentRow < 3) currentRow++;
     display();
 }
-
-
-let generateGameGrid = () => {
-    
-    let grid = document.querySelector('#game-grid');
-    grid.innerHTML = '';
-
-    for (let i = 0; i < maxGuesses; i++) {
-        let row = document.createElement('div');
-        row.className = 'row';
-        row.id = 'row-' + i;
-        grid.appendChild(row);
-        for (let j = 0; j < 8; j++) {
-            let column = document.createElement('div');
-            column.className = 'column';
-            column.id = 'column-' + i + '-' + j;
-            row.appendChild(column);
-        }
-    }
-};
 
 // Components 
 const User = createUser(
@@ -89,49 +94,20 @@ const User = createUser(
 );
 
 const Sequence = createSequence(document.querySelector('#sequence'));
-const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'));
+const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });
 const EnterButton = createEnterGuess(document.querySelector('#enter'), { handleEnterGuess });
-// const BackspaceButton = createBackspace(document.querySelector('#backspace'), { goBack });
+const BackspaceButton = createBackspace(document.querySelector('#backspace'), { handleBackspace });
+const gameGrid = createGameGrid(document.querySelector('#game-grid'));
+const Result = createResult(document.querySelector('#result'));
 
 function display() {
-    User({ user });
-    generateGameGrid();
+    User({ user, profile });
     Sequence({ sequence });
-    NoteButtons({ notes, currentGuess });
+    NoteButtons({ notes });
     EnterButton({ currentGuess });
-    // BackspaceButton();
+    BackspaceButton();
+    gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
+    Result({ result, end });
 }
 
 handlePageLoad();
-
-// next steps:
-    // - enter button to submit guess
-// const goBack = () => {
-//     if (currentColumn > 0) {
-//         (currentColumn - 1).innerText = ''; 
-//         currentColumn--;
-//         currentGuess.pop();
-//     }
-// };
-
-// function enterANote(event) {
-//     if (currentColumn < 8) {
-//         document.querySelector('#column' + currentRow + '-' + currentColumn).innerText = event.target.innerText;
-//         currentColumn++;
-//         currentGuess.push(event.target.innerText);
-//     }
-// }
-
-// noteInputButtons.addEventListener('click', () => {
-//     enterANote();
-// });
-
-
-
-
-
-
-
-
-
-    // - backspace button to remove note from guess

@@ -1,24 +1,20 @@
-import { synth } from '../app.js';
+export default function createNoteButtons(root, { handleGuessNote }) {
 
-export default function createNoteButtons(root) {
-
-    return ({ notes, currentGuess }) => {
+    return ({ notes }) => {
+        root.innerHTML = '';
         for (const note of notes) {
-            root.append(NoteButton({ notes, note, currentGuess }));
+            root.append(NoteButton({ note, handleGuessNote }));
         }
     };
 }
 
 
-function NoteButton({ note, currentGuess }) {
+function NoteButton({ note, handleGuessNote }) {
     const button = document.createElement('button');
     button.classList.add('note-button');
     button.textContent = note === 'C5' ? 'C (high)' : note.split('')[0];
     button.addEventListener('click', () => {
-        synth.triggerAttackRelease(note, '8n');
-        if (currentGuess.length < 8) {
-            currentGuess.push(note);
-        }
+        handleGuessNote(note);
     });
 
     return button;

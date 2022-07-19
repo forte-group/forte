@@ -1,6 +1,6 @@
-export default function createBackspace(button, { goBack }) {
+export default function createBackspace(button, { handleBackspace }) {
     button.addEventListener('click', () => {
-        goBack();
+        handleBackspace();
     });
     return () => {
 
