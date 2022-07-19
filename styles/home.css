@@ -64,3 +64,17 @@
     background-color: green;
 }
 
+#user {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    align-items: center;
+}
+
+#user img {
+    height: 80px;
+    width: 80px;
+    border: solid 2px black;
+    border-radius: 50%;
+    background-color: #72DDF7;
+}
