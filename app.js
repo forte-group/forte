@@ -33,6 +33,12 @@ async function handlePageLoad() {
 
     profile = await getProfile();
     if (!profile) location.replace('./profile');
+
+    if (profile.avatar_url === null) {
+        profile.avatar_url = 'https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png';
+    }
+
+
     generateSequence();
 
     currentStreak = profile.currentStreak;
