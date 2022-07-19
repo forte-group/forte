@@ -11,8 +11,10 @@ export default function createSequence(root) {
         sequenceDisplay.innerHTML = '';
 
         for (let i = 0; i < sequence.length; i++) {
-            sequenceDisplay.append(SequenceNote({ i }));
+            sequenceDisplay.append(SequenceNote());
         }
+
+        root.append(sequenceDisplay);
 
         playButton.addEventListener('click', () => {
             const now = Tone.now();
@@ -23,14 +25,28 @@ export default function createSequence(root) {
             setTimeout(() => {
                 playButton.disabled = false;
             }, 4000);
+
+            const sequenceDivs = root.querySelectorAll('.sequence-div');
+            let i = 0;
+
+            function displayAudio() {
+                sequenceDivs[i].style.backgroundColor = 'green';                        
+                setTimeout(function() {   
+                    sequenceDivs[i].style.backgroundColor = 'white';                        
+                    i++;                    
+                    if (i < 8) {          
+                        displayAudio();            
+                    }                       
+                }, 500);
+            }            
+            displayAudio(); 
         });
 
     };
 }
 
-function SequenceNote({ id }) {
+function SequenceNote() {
     const div = document.createElement('div');
-    div.id = id;
     div.classList.add('sequence-div');
 
     return div;
