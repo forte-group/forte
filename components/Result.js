@@ -2,7 +2,11 @@ export default function createResult(root) {
 
     return ({ result, currentStreak, longestStreak, end }) => { // need to pass in end
         root.classList.add('hidden');
-        if (end) root.classList.remove('hidden');
+        if (end) {
+            setTimeout(() => {
+                root.classList.remove('hidden');
+            }, 1500);
+        }
         root.innerHTML = '';
         const h2result = document.createElement('h2');
         h2result.classList.add('result-title');
