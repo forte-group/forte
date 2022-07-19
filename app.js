@@ -124,7 +124,7 @@ function display() {
     EnterButton({ currentGuess });
     BackspaceButton();
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
-    Result({ result, end, currentStreak, longestStreak });
+    Result({ result, end, currentStreak, longestStreak, sequence });
 }
 
 handlePageLoad();
