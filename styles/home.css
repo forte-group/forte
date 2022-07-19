@@ -115,3 +115,8 @@
 .link-div a {
     padding: 10px;
 }
+
+#sequence-div span {
+    margin-left: 6px;
+    margin-right: 6px;
+}
