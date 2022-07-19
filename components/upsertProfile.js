@@ -10,6 +10,11 @@ export default function createUpsertProfile(form, handleUpsertProfile) {
             username: formdata.get('username'),
             avatar: formdata.get('avatar'),
         };
+        // // console.log(data.avatar.name);
+        // // if (data.avatar.name === '') {
+        // //     data.avatar = 'https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png';
+
+        // }
 
         handleUpsertProfile(data);
         form.reset();
@@ -17,6 +22,7 @@ export default function createUpsertProfile(form, handleUpsertProfile) {
 
     const fileInput = document.querySelector('#file-input');
     const previewImage = document.querySelector('.avatar-preview');
+
 
     fileInput.addEventListener('change', () => {
         const [file] = fileInput.files;
