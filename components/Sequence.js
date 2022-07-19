@@ -24,7 +24,7 @@ export default function createSequence(root) {
             playButton.disabled = true;
             setTimeout(() => {
                 playButton.disabled = false;
-            }, 4000);
+            }, 4500);
 
             const sequenceDivs = root.querySelectorAll('.sequence-div');
             let i = 0;
