@@ -15,14 +15,19 @@ export default function createGameGrid(root) {
         }
     }
 
-    return ({ currentGuess }) => {
+    return ({ currentGuess, correctNotes, guessedSequences, currentRow }) => {
+
         for (let i = 0; i < currentGuess.length; i++) {
-            const cell = root.querySelector(`#column-0-${i}`);
-            console.log(cell);
+            const cell = root.querySelector(`#column-${currentRow}-${i}`);
             cell.textContent = currentGuess[i].split('')[0];
+        }
+
+        for (let i = 0; i < guessedSequences[currentRow - 1].length; i++) {
+            const completedCell = root.querySelector(`#column-${currentRow - 1}-${i}`);
+            if (correctNotes[currentRow - 1].includes(i)) {
+                completedCell.classList.add('correct');
+            }
         }
     };
 
 }
-
-//column-currentRow-currentColumn

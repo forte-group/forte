@@ -16,9 +16,9 @@ const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
-// [[sequence1], [sequence2], [sequence3], [sequence4]];
+let correctNotes = [];
 
-
+let currentRow = 0;
 // let sequenceLength = 8;
 // let numberOfGuesses = 0;
 // let currentColumn = 0;
@@ -68,8 +68,18 @@ function handleEnterGuess() {
     if (match || guessedSequences.length === 4) {
         handleGameEnd();
     }
+    else if (!match) {
+        let correct = [];
+        for (let i = 0; i < currentGuess.length; i++) {
+            if (currentGuess[i] === sequence[i]) {
+                correct.push(i);
+            }
+        }
+        correctNotes.push(correct);
+
+    }
     currentGuess = [];
-    // currentRow++;
+    if (currentRow < 3) currentRow++;
     display();
 }
 
@@ -92,7 +102,7 @@ function display() {
     NoteButtons({ notes });
     EnterButton({ currentGuess });
     // BackspaceButton();
-    gameGrid({ currentGuess });
+    gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
 handlePageLoad();
