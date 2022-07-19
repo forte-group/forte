@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     outline: 1px solid black;
+    background: white;
 }
 
 .row {
@@ -65,13 +66,6 @@
     background-color: green;
 }
 
-#user {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-    align-items: center;
-}
-
 #user img {
     height: 40px;
     width: 40px;
@@ -83,6 +77,7 @@
 
 #forte-img {
     height: 100px;
+    margin: 0 auto;
 }
 
 #sequence {
