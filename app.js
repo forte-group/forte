@@ -1,4 +1,4 @@
-import { getProfile, getUser, signOut } from './services/auth-service.js';
+import { getProfile, getUser, signOut, updateProfile } from './services/auth-service.js';
 import { checkForMatch, protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createSequence from './components/Sequence.js';
@@ -23,6 +23,9 @@ let currentRow = 0;
 let end = false;
 let result = -1;
 
+let currentStreak = 0;
+let longestStreak = 0;
+
 // Action Handlers
 async function handlePageLoad() {
     user = getUser();
@@ -31,6 +34,9 @@ async function handlePageLoad() {
     profile = await getProfile();
     if (!profile) location.replace('./profile');
     generateSequence();
+
+    currentStreak = profile.currentStreak;
+    longestStreak = profile.longestStreak;
     
     display();
 }
@@ -58,12 +64,25 @@ function handleBackspace() {
     display();
 }
 
-function handleGameEnd() { //need to pass in result
+async function handleGameEnd(result) {
     end = true;
-    //brings up popup
-    // says won or lost
-    // gives current streak and longest streak
-    // two buttons: play again and view leaderboard
+
+    if (result === 1) {
+        currentStreak++;
+        if (currentStreak > longestStreak) longestStreak = currentStreak;
+        console.log('you won!');
+    }
+    if (result === -1) {
+        currentStreak = 0;
+        console.log('you lost...');
+    }
+
+    const streakUpdate = {
+        longestStreak,
+        currentStreak
+    };
+
+    profile = await updateProfile(streakUpdate);
 }
 
 function handleEnterGuess() {
@@ -108,7 +127,7 @@ function display() {
     EnterButton({ currentGuess });
     BackspaceButton();
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
-    Result({ result, end });
+    Result({ result, end, currentStreak, longestStreak });
 }
 
 handlePageLoad();
