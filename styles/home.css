@@ -1,15 +1,53 @@
+html {
+    --flame: #E5582D;
+    --cambridge-blue: #B8D5BA;
+    --bottle-green: #206C52;
+    --nad-pink: #EDADBF;
+}
+
+body {
+    background-image: url("../assets/wallpaperflare.com_wallpaper\ \(1\).jpg");
+    background-size: 800px;
+}
+
+header {
+    background-color: #0a0a0a85;
+    border: 3px solid black;
+}
+
+footer {
+    background-color: #05050549;
+}
+
+#game {
+    padding: 30px;
+    /* background-color: #ce8ee467; */
+    /* background-color: var(--cambridge-blue); */
+    background-color: #94b5f159;
+    width: 550px;
+    margin: 40px auto;
+    border-radius: 10px;
+    border: 6px solid #050505;
+    box-shadow: 0px 1px 20px 0px rgb(250, 42, 205);
+    font-family: cursive;
+    font-size: 20px;
+}
+
 .column {
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: 1px solid black;
+    outline: 2px solid rgba(250, 2, 250, 0.5);
+    /* background: rgb(236, 236, 217); */
+    background-color: #030303;
+    color: #e431fc;
 }
 
 .row {
     display: flex;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
 
 #game-grid {
@@ -33,9 +71,17 @@
     margin: 5px;
     height: 50px;
     width: 50px;
-    color: black;
-    background-color: #f9c5d1;
-    background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);
+    color: rgb(221, 3, 250);
+    background-color: rgb(5, 5, 5);
+    border-radius: 4px;
+    font-weight: bolder;
+    border: 1px solid rgb(95, 3, 107);
+}
+
+.note-button:active {
+    box-shadow: 0px 1px 15px 0px rgb(152, 2, 252);
+    background-color: rgb(46, 5, 43);
+    
 }
 
 #controls {
@@ -59,30 +105,24 @@
     margin-left: 5px;
     height: 30px;
     width: 30px;
+    border: 1px solid gray;
 }
 
 .correct {
     background-color: green;
 }
 
-#user {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-    align-items: center;
-}
-
 #user img {
-    height: 40px;
-    width: 40px;
-    border: solid 2px black;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
-    background-color: #72DDF7;
+    background-color: #e5582d00;
 }
 
 
 #forte-img {
     height: 100px;
+    margin: 0 auto;
 }
 
 #sequence {
@@ -95,21 +135,33 @@
 
 #play-sequence {
     display: flex;
+    width: 100px;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    position: relative;
+    top: -8px;
 }
+
+#play-sequence button {
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+    color: rgb(247, 5, 235);
+    text-shadow: 0 0 0.5em rgb(247, 5, 235);
+}
+
 #sequence-display {
-    width: 40%;
+    width: 300px;
     height: 60px;
-    border: 1px solid black;
+    border: 1px solid rgb(245, 12, 225);
     display: flex;
 }
 
 #sequence-display div {
     width: 12.5%;
-    border: 1px solid black;
-    background-color: white;
+    border: 1px solid rgba(230, 6, 250, 0.493);
+    background-color: #050400;
 }
 
 #result {
@@ -147,3 +199,34 @@
     margin-left: 6px;
     margin-right: 6px;
 }
+
+#play-button-img {
+    height: 40px;
+    width: 60px;
+}
+
+#backspace {
+    color: #fd05d4;
+    background-color: black;
+    border-radius: 5px;
+    border: 2px solid rgb(247, 5, 235);
+    margin-right: 100px;
+    height: 40px;
+    width: 100px;
+    text-shadow: 0 0 0.5em rgb(247, 5, 235);
+}
+
+#enter {
+    color: #fd05d4;
+    background-color: black;
+    border-radius: 5px;
+    border: 2px solid rgb(247, 5, 235);
+    height: 40px;
+    width: 100px;
+    text-shadow: 0 0 0.5em rgb(247, 5, 235);
+}
+
+
+
+
+

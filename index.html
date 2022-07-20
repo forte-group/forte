@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/x-icon" href="./assets/forrte-removebg-preview (1).png" />
+    <link rel="icon" type="image/x-icon" href="./assets/lollo.jpg" />
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,34 +23,33 @@
 <body>
     <header>
         <img>
-        <a href="./leaderboard">View Leaderboard</a>
-        <a href="./Profile">Update Profile</a>
-        <a href="./About"><img id="forte-img" src="./assets/logo2-removebg-preview.png"></a>
+        <a href="./leaderboard" id="leaderboard-link">View Leaderboard</a>
+        <div id="header-image-div">
+            <a href="./About"><img id="forte-img" src="./assets/lollo.jpg"></a>
+        </div>
         <div id="user"></div>
     </header>
 
     <main>
-        <div id="sequence">
-            <div id="sequence-display"></div>
-            <div id="play-sequence">
-                <span>Play Sequence:</span>
-                <button id="play-button">▶︎</button>
+        <div id="game">
+            <div id="sequence">
+                <div id="sequence-display"></div>
+                <div id="play-sequence">
+                    <!-- <span>Play:</span> -->
+                    <button id="play-button">▶</button>
+                </div>
             </div>
-        </div>
-        <div id="game-grid">
-
-        </div>
-        <div id="note-buttons"></div>
-        <div id="controls">
-            <button id="backspace">Backspace</button>
-            <button id="enter">Enter</button>
-        </div>
-        <div class="pop-up" id="result">
-            <!-- <span>You <span id="result-display"></span></span>
-            <span class="streak">Current Streak: <span id="current-streak"></span></span>
-            <span class="streak">Longest Streak: <span id="longest-streak"></span></span>
-            <a href="/">Play Again</a>
-            <a href="./leaderboard">View Leaderboard</a> -->
+            <div id="game-grid">
+    
+            </div>
+            <div id="note-buttons">
+            </div>
+            <div id="controls">
+                <button id="backspace">Backspace</button>
+                <button id="enter">Enter</button>
+            </div>
+            <div class="pop-up" id="result">
+            </div>
         </div>
     </main>
 

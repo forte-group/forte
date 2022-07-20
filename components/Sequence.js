@@ -1,11 +1,14 @@
 import { synth } from '../app.js';
 
-// duration of 8th note = 500 ms
-
 export default function createSequence(root) {
 
-    const playButton = root.querySelector('button');
-    const sequenceDisplay = root.querySelector('#sequence-display');
+    const sequenceSection = root.querySelector('#sequence');
+    let buttons;
+    setTimeout(() => {
+        buttons = root.querySelectorAll('button');
+    }, 500);
+    const playButton = sequenceSection.querySelector('button');
+    const sequenceDisplay = sequenceSection.querySelector('#sequence-display');
 
     return ({ sequence }) => {
         sequenceDisplay.innerHTML = '';
@@ -14,19 +17,22 @@ export default function createSequence(root) {
             sequenceDisplay.append(SequenceNote());
         }
 
-        root.append(sequenceDisplay);
+        sequenceSection.append(sequenceDisplay);
 
         playButton.addEventListener('click', () => {
             const now = Tone.now();
             for (let i = 0; i < sequence.length; i++) {
                 synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.5));
             }
-            playButton.disabled = true;
-            setTimeout(() => {
-                playButton.disabled = false;
-            }, 4000);
 
-            const sequenceDivs = root.querySelectorAll('.sequence-div');
+            buttons.forEach(button => {
+                button.disabled = true;
+                setTimeout(() => {
+                    button.disabled = false;
+                }, 4500);
+            });
+
+            const sequenceDivs = sequenceSection.querySelectorAll('.sequence-div');
             let i = 0;
 
             function displayAudio() {

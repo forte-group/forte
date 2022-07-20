@@ -16,6 +16,5 @@ function NoteButton({ note, handleGuessNote }) {
     button.addEventListener('click', () => {
         handleGuessNote(note);
     });
-
     return button;
 }

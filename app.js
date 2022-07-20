@@ -31,8 +31,21 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
+    if (!user) return;
+
     profile = await getProfile();
-    if (!profile) location.replace('./profile');
+
+    if (!profile) {
+        const update = {
+            id: user.id,
+            username: user?.email.split('@')[0],
+            avatar_url: 'https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png'
+        };
+
+        profile = await updateProfile(update);
+
+    }
+
     generateSequence();
 
     currentStreak = profile.currentStreak;
@@ -42,7 +55,7 @@ async function handlePageLoad() {
 }
 
 async function handleSignOut() {
-    signOut();
+    await signOut();
 }
 
 function generateSequence() {
@@ -50,6 +63,7 @@ function generateSequence() {
         sequence[i] = notes[Math.floor(Math.random() * notes.length)];
     }
 }
+
 
 function handleGuessNote(note) {
     synth.triggerAttackRelease(note, '8n');
@@ -110,7 +124,7 @@ const User = createUser(
     { handleSignOut }
 );
 
-const Sequence = createSequence(document.querySelector('#sequence'));
+const Sequence = createSequence(document.querySelector('main'));
 const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });
 const EnterButton = createEnterGuess(document.querySelector('#enter'), { handleEnterGuess });
 const BackspaceButton = createBackspace(document.querySelector('#backspace'), { handleBackspace });
@@ -119,10 +133,10 @@ const Result = createResult(document.querySelector('#result'));
 
 function display() {
     User({ user, profile });
-    Sequence({ sequence });
     NoteButtons({ notes });
     EnterButton({ currentGuess });
     BackspaceButton();
+    Sequence({ sequence });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
     Result({ result, end, currentStreak, longestStreak, sequence });
 }

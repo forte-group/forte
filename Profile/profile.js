@@ -2,6 +2,8 @@
 import { getProfile, getUser, signOut, updateProfile, uploadAvatar } from '../services/auth-service.js';
 import createUser from '../components/User.js';
 import createUpsertProfile from '../components/upsertProfile.js';
+import { protectPage } from '../utils.js';
+
 
 //state
 let user = null;
@@ -10,8 +12,15 @@ let profile = null;
 //action handlers
 async function handlePageLoad() {
     user = getUser();
+    protectPage(user);
 
+    if (!user) {
+        return;
+    }
+    console.log(user);
     profile = await getProfile();
+    console.log(profile);
+
     display();
 }
 
@@ -33,7 +42,7 @@ async function handleUpsertProfile({ username, avatar }) {
 }
 
 async function handleSignOut() {
-    signOut();
+    await signOut();
 }
 
 //components

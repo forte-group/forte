@@ -4,16 +4,19 @@
     background-color: #d1d1d1;
     color: #090a0a;
 }
+
 #team h2 {
     position: relative;
     padding: 0px 0px 15px;
 }
+
 #team p {
     font-size: 15px;
     font-style: italic;
     padding: 0px;
     margin: 25px 0px 40px;
 }
+
 #team h2::after {
     content: '';
     border-bottom: 2px solid rgb(10, 7, 7);
@@ -25,6 +28,7 @@
     margin: 0 auto;
     display: block;
 }
+
 #team .member {
     width: 200px;
     margin-right: 10px;
@@ -35,6 +39,7 @@
     border-radius: 15px 15px 15px 15px;
     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.4);
 }
+
 #team .member .member-info {
     display: block;
     position: absolute;
@@ -44,31 +49,38 @@
     padding: 15px 0;
     background: rgba(0, 0, 0, 0.479);
 }
+
 #team .member:hover .member-info {
     left: 0px;
     right: 0px;
 }
+
 #team .member h4 {
     font-weight: 700;
     margin-bottom: 2px;
     font-size: 18px;
     color: #fff;
 }
+
 #team .member span {
     font-style: italic;
     display: block;
     font-size: 13px;
 }
+
 #team .member .social-links {
     margin-top: 15px;
 }
+
 #team .member .social-links a {
     transition: none;
     color: #fff;
 }
+
 #team .member .social-links a:hover {
     color: #ffc107;
 }
+
 #team .member .social-links i {
     font-size: 18px;
     margin: 0 2px;
@@ -100,15 +112,19 @@ span {
     .row {
         display: grid;
     }
+
     .member {
         margin-bottom: 10px;
     }
+
     .hidden {
         display: contents;
     }
+
     .member-info {
         display: none;
     }
+
     #team .member:hover .member-info {
         display: none;
     }

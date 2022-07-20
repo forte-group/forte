@@ -25,14 +25,28 @@ export default function createUser(root, { handleSignOut }) {
             nameDisplay.textContent = username;
         }
 
+        const userDisplay = document.createElement('div');
+        userDisplay.id = 'user-display';
+
+        userDisplay.append(avatarDisplay, nameDisplay);
+
         const signOutLink = document.createElement('a');
         signOutLink.textContent = 'Sign out';
-        signOutLink.href = '';
-        signOutLink.addEventListener('click', () => {
-            handleSignOut();
+        signOutLink.href = '/auth';
+        signOutLink.addEventListener('click', async () => {
+            await handleSignOut();
         });
 
-        root.append(nameDisplay, avatarDisplay, signOutLink);
+        const updateProfileLink = document.createElement('a');
+        updateProfileLink.textContent = 'Update Profile';
+        updateProfileLink.href = '../Profile';
+
+        const linkDiv = document.createElement('div');
+        linkDiv.id = 'user-links';
+
+        linkDiv.append(updateProfileLink, signOutLink);
+
+        root.append(userDisplay, linkDiv);
     };
 }
 

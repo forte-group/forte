@@ -14,15 +14,18 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
+    if (!user) return;
+
     profile = await getProfile();
 
     streaks = await getLongestStreaks();
+    console.log(streaks);
 
     display();
 }
 
 async function handleSignOut() {
-    signOut();
+    await signOut();
 }
 
 // Components 
