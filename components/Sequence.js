@@ -36,9 +36,9 @@ export default function createSequence(root) {
             let i = 0;
 
             function displayAudio() {
-                sequenceDivs[i].style.backgroundColor = 'green';                        
+                sequenceDivs[i].style.backgroundColor = 'pink';                        
                 setTimeout(function() {   
-                    sequenceDivs[i].style.backgroundColor = 'white';                        
+                    sequenceDivs[i].style.backgroundColor = 'black';                        
                     i++;                    
                     if (i < 8) {          
                         displayAudio();            
