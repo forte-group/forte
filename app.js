@@ -32,7 +32,7 @@ async function handlePageLoad() {
     protectPage(user);
 
     if (!user) return;
-        
+
     profile = await getProfile();
 
     if (!profile) {
@@ -63,6 +63,7 @@ function generateSequence() {
         sequence[i] = notes[Math.floor(Math.random() * notes.length)];
     }
 }
+
 
 function handleGuessNote(note) {
     synth.triggerAttackRelease(note, '8n');
@@ -123,7 +124,7 @@ const User = createUser(
     { handleSignOut }
 );
 
-const Sequence = createSequence(document.querySelector('#sequence'));
+const Sequence = createSequence(document.querySelector('main'));
 const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });
 const EnterButton = createEnterGuess(document.querySelector('#enter'), { handleEnterGuess });
 const BackspaceButton = createBackspace(document.querySelector('#backspace'), { handleBackspace });
@@ -132,10 +133,10 @@ const Result = createResult(document.querySelector('#result'));
 
 function display() {
     User({ user, profile });
-    Sequence({ sequence });
     NoteButtons({ notes });
     EnterButton({ currentGuess });
     BackspaceButton();
+    Sequence({ sequence });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
     Result({ result, end, currentStreak, longestStreak, sequence });
 }
