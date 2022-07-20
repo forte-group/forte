@@ -7,13 +7,24 @@ import createEnterGuess from './components/EnterGuess.js';
 import createGameGrid from './components/GameGrid.js';
 import createBackspace from './components/Backspace.js';
 import createResult from './components/Result.js';
+import createScaleSelect from './components/ScaleSelect.js';
 
 // State
 export const synth = new Tone.Synth().toDestination();
 
 let user = null;
 let profile = null;
-const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
+const scaleNames = ['Ionian (standard major)', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian (natural minor)', 'Locrian'];
+const scales = [['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'],
+    ['C4', 'D4', 'Eb4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
+    ['C4', 'Db4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
+    ['C4', 'D4', 'E4', 'Gb4', 'G4', 'A4', 'B4', 'C5'],
+    ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
+    ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
+    ['C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5']
+];
+let scaleIndex = 0;
+let notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
@@ -48,6 +59,8 @@ async function handlePageLoad() {
 
     generateSequence();
 
+    console.log(sequence);
+
     currentStreak = profile.currentStreak;
     longestStreak = profile.longestStreak;
 
@@ -64,6 +77,15 @@ function generateSequence() {
     }
 }
 
+function handleScaleSelect(index) {
+    scaleIndex = index;
+    notes = scales[scaleIndex];
+    currentGuess = [];
+    guessedSequences = [];
+    correctNotes = [];
+    currentRow = 0;
+    display();
+}
 
 function handleGuessNote(note) {
     synth.triggerAttackRelease(note, '8n');
@@ -124,6 +146,7 @@ const User = createUser(
     { handleSignOut }
 );
 
+const scaleSelect = createScaleSelect(document.querySelector('#scale-select'), { handleScaleSelect });
 const Sequence = createSequence(document.querySelector('main'));
 const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });
 const EnterButton = createEnterGuess(document.querySelector('#enter'), { handleEnterGuess });
@@ -133,6 +156,7 @@ const Result = createResult(document.querySelector('#result'));
 
 function display() {
     User({ user, profile });
+    scaleSelect({ scaleNames, scales, notes });
     NoteButtons({ notes });
     EnterButton({ currentGuess });
     BackspaceButton();

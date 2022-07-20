@@ -1,7 +1,7 @@
 import { synth } from '../app.js';
 
 export default function createSequence(root) {
-
+    
     const sequenceSection = root.querySelector('#sequence');
     let buttons;
     setTimeout(() => {
