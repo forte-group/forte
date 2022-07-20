@@ -20,7 +20,8 @@ export default function createGameGrid(root) {
         if (currentRow < 4) {
             for (let i = 0; i < currentGuess.length; i++) {
                 const cell = root.querySelector(`#column-${currentRow}-${i}`);
-                cell.textContent = currentGuess[i].split('')[0];
+                let noteText = currentGuess[i].match(/[a-zA-Z]+/g);
+                cell.textContent = noteText[0];
             }
 
             for (let i = currentGuess.length; i < 8; i++) {
@@ -34,6 +35,16 @@ export default function createGameGrid(root) {
                 const completedCell = root.querySelector(`#column-${currentRow - 1}-${i}`);
                 if (correctNotes[currentRow - 1].includes(i)) {
                     completedCell.classList.add('correct');
+                }
+            }
+        }
+
+        if (currentGuess.length === 0 && correctNotes.length === 0 && guessedSequences.length === 0 && currentRow === 0) {
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const cell = root.querySelector(`#column-${j}-${i}`);
+                    cell.textContent = '';
+                    cell.classList.remove('correct');
                 }
             }
         }
