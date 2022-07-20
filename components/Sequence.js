@@ -1,7 +1,7 @@
 import { synth } from '../app.js';
 
 export default function createSequence(root) {
-    
+
     const sequenceSection = root.querySelector('#sequence');
     let buttons;
     setTimeout(() => {
@@ -22,14 +22,14 @@ export default function createSequence(root) {
         playButton.addEventListener('click', () => {
             const now = Tone.now();
             for (let i = 0; i < sequence.length; i++) {
-                synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.5));
+                synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.6));
             }
 
             buttons.forEach(button => {
                 button.disabled = true;
                 setTimeout(() => {
                     button.disabled = false;
-                }, 4500);
+                }, 5000);
             });
 
             const sequenceDivs = sequenceSection.querySelectorAll('.sequence-div');
@@ -43,7 +43,7 @@ export default function createSequence(root) {
                     if (i < 8) {          
                         displayAudio();            
                     }                       
-                }, 500);
+                }, 600);
             }            
             displayAudio(); 
         });

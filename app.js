@@ -59,8 +59,6 @@ async function handlePageLoad() {
 
     generateSequence();
 
-    console.log(sequence);
-
     currentStreak = profile.currentStreak;
     longestStreak = profile.longestStreak;
 
@@ -80,6 +78,7 @@ function generateSequence() {
 function handleScaleSelect(index) {
     scaleIndex = index;
     notes = scales[scaleIndex];
+    generateSequence();
     currentGuess = [];
     guessedSequences = [];
     correctNotes = [];
