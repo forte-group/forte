@@ -2,7 +2,7 @@
     padding: 60px 0;
     text-align: center;
     background-color: #d1d1d1;
-    color: #145889;
+    color: #090a0a;
 }
 #team h2 {
     position: relative;
@@ -16,7 +16,7 @@
 }
 #team h2::after {
     content: '';
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid rgb(10, 7, 7);
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -86,4 +86,27 @@
 
 span {
     color: rgb(209, 170, 245);
+}
+
+#forte-link {
+    height: 60px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .row {
+        display: grid;
+    }
+    .member {
+        margin-bottom: 10px;
+    }
+    .hidden {
+        display: contents;
+    }
+    .member-info {
+        display: none;
+    }
 }
