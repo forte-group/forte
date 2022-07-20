@@ -1,7 +1,7 @@
 export default function createNoteButtons(root, { handleGuessNote }) {
 
     return ({ notes }) => {
-        // root.innerHTML = '';
+        root.innerHTML = '';
         for (const note of notes) {
             root.append(NoteButton({ note, handleGuessNote }));
         }
