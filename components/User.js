@@ -32,9 +32,9 @@ export default function createUser(root, { handleSignOut }) {
 
         const signOutLink = document.createElement('a');
         signOutLink.textContent = 'Sign out';
-        signOutLink.href = '';
-        signOutLink.addEventListener('click', () => {
-            handleSignOut();
+        signOutLink.href = '/auth';
+        signOutLink.addEventListener('click', async () => {
+            await handleSignOut();
         });
 
         const updateProfileLink = document.createElement('a');
