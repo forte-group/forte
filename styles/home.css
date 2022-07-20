@@ -128,6 +128,7 @@ footer {
 #sequence {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     width: 50%;
     margin: 30px auto;
@@ -149,6 +150,12 @@ footer {
     border: none;
     color: rgb(247, 5, 235);
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    display: flex;
+    align-self: center;
 }
 
 #sequence-display {
@@ -162,6 +169,7 @@ footer {
     width: 12.5%;
     border: 1px solid rgba(230, 6, 250, 0.493);
     background-color: #050400;
+    width: 20px;
 }
 
 #result {
@@ -174,6 +182,13 @@ footer {
     margin-left: auto; 
     margin-right: auto; 
     width: 500px;
+}
+
+#scale-select {
+    background-color: black;
+    color: rgb(247, 5, 235);
+    height: 35px;
+    border: 1px solid rgb(247, 5, 235) ;
 }
 
 .streak-div {
@@ -214,6 +229,7 @@ footer {
     height: 40px;
     width: 100px;
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
+    cursor: pointer;
 }
 
 #enter {
@@ -224,6 +240,7 @@ footer {
     height: 40px;
     width: 100px;
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
+    cursor: pointer;
 }
 
 
