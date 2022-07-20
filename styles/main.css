@@ -1,7 +1,9 @@
 :root {
     --background: rgb(224, 234, 247);
-    --header-background: white;
+    --header-background: #a499e3;
+    /* --header-background: rgb(188, 224, 209); */
     --footer-background: rgb(243, 242, 242);
+    --flame: #E5582D;
 }
 
 body {
@@ -16,8 +18,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--header-background);
+    background-color: #FCF5E5;
+    border: 4px solid white;
     position: relative;
+
 }
 
 #leaderboard-link {
