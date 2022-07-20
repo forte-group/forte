@@ -31,13 +31,20 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
+    if (!user) return;
+        
     profile = await getProfile();
-    if (!profile) location.replace('./profile');
 
-    if (profile.avatar_url === null) {
-        profile.avatar_url = 'https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png';
+    if (!profile) {
+        const update = {
+            id: user.id,
+            username: user?.email.split('@')[0],
+            avatar_url: 'https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png'
+        };
+
+        profile = await updateProfile(update);
+
     }
-
 
     generateSequence();
 
@@ -48,7 +55,7 @@ async function handlePageLoad() {
 }
 
 async function handleSignOut() {
-    signOut();
+    await signOut();
 }
 
 function generateSequence() {
