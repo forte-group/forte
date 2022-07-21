@@ -8,7 +8,7 @@ import createGameGrid from './components/GameGrid.js';
 import createBackspace from './components/Backspace.js';
 import createResult from './components/Result.js';
 import createScaleSelect from './components/ScaleSelect.js';
-import { addStreak, getProfileCount, updateStreak } from './services/forte-service.js';
+import { addStreak, updateStreak } from './services/forte-service.js';
 
 // State
 export const synth = new Tone.Synth().toDestination();
@@ -47,8 +47,6 @@ async function handlePageLoad() {
 
     if (!user) return;
 
-    const userCount = await getProfileCount();
-
     profile = await getProfile();
 
     if (!profile) {
@@ -56,7 +54,6 @@ async function handlePageLoad() {
             id: user.id,
             username: user?.email.split('@')[0],
             avatar_url: 'https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png',
-            user_num: userCount
         };
 
         profile = await updateProfile(update);
