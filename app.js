@@ -8,6 +8,7 @@ import createGameGrid from './components/GameGrid.js';
 import createBackspace from './components/Backspace.js';
 import createResult from './components/Result.js';
 import createScaleSelect from './components/ScaleSelect.js';
+import createNavBar from './components/Nav.js';
 import { addStreak, updateStreak } from './services/forte-service.js';
 
 // State
@@ -17,12 +18,12 @@ let user = null;
 let profile = null;
 const scaleNames = ['Ionian (standard major)', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian (natural minor)', 'Locrian'];
 const scales = [['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'],
-    ['C4', 'D4', 'Eb4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
-    ['C4', 'Db4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
-    ['C4', 'D4', 'E4', 'Gb4', 'G4', 'A4', 'B4', 'C5'],
-    ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
-    ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
-    ['C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5']
+['C4', 'D4', 'Eb4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
+['C4', 'Db4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
+['C4', 'D4', 'E4', 'Gb4', 'G4', 'A4', 'B4', 'C5'],
+['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
+['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
+['C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5']
 ];
 let scaleIndex = 0;
 let notes;
@@ -37,8 +38,9 @@ let result = -1;
 
 let currentStreak = 0;
 let longestStreak = 0;
-
 let numOfStreaks = 0;
+
+let menuOpen = false;
 
 // Action Handlers
 async function handlePageLoad() {
@@ -83,6 +85,23 @@ function generateSequence() {
     for (let i = 0; i < notes.length; i++) {
         sequence[i] = notes[Math.floor(Math.random() * notes.length)];
     }
+}
+
+function handleMenuToggle(menu, closeIcon, menuIcon) {
+    if (menu.classList.contains('showMenu')) {
+        menu.classList.remove('showMenu');
+        closeIcon.style.display = 'none';
+        menuIcon.style.display = 'block';
+        menuOpen = !menuOpen;
+
+    }
+    else {
+        menu.classList.add('showMenu');
+        closeIcon.style.display = 'block';
+        menuIcon.style.display = 'none';
+        menuOpen = !menuOpen;
+    }
+    display();
 }
 
 function handleScaleSelect(index) {
@@ -162,7 +181,7 @@ function handleEnterGuess() {
     if (currentRow === 4 || result === 1) {
         Result({ result, end, currentStreak, longestStreak, sequence });
     }
-    
+
 }
 
 // Components 
@@ -171,6 +190,7 @@ const User = createUser(
     { handleSignOut }
 );
 
+const NavBar = createNavBar(document, { handleMenuToggle });
 const scaleSelect = createScaleSelect(document.querySelector('#scale-select'), { handleScaleSelect });
 const Sequence = createSequence(document.querySelector('main'));
 const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });
@@ -181,6 +201,7 @@ const Result = createResult(document.querySelector('#result'));
 
 function display() {
     User({ user, profile });
+    NavBar({ menuOpen });
     scaleSelect({ scaleNames, scales, notes, scaleIndex });
     NoteButtons({ notes });
     EnterButton({ currentGuess });

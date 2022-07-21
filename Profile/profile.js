@@ -2,52 +2,16 @@
 import { getProfile, getUser, signOut, updateProfile, uploadAvatar } from '../services/auth-service.js';
 import createUser from '../components/User.js';
 import createUpsertProfile from '../components/upsertProfile.js';
+import createNavBar from '../components/Nav.js';
 import { protectPage } from '../utils.js';
 
 
 //state
 let user = null;
 let profile = null;
-
-
-//hamburger menu js
 let menuOpen = false;
 
-const menu = document.querySelector('.menu');
-const menuItems = document.querySelectorAll('.menu-option');
-const hamburger = document.querySelector('.hamburger');
-const menuIcon = document.querySelector('#display-menu');
-const closeIcon = document.querySelector('#close-menu');
-const docMain = document.querySelector('main');
-
-function menuToggle() {
-    if (menu.classList.contains('showMenu')) {
-        menu.classList.remove('showMenu');
-        closeIcon.style.display = 'none';
-        menuIcon.style.display = 'block';
-
-    }
-    else {
-        menu.classList.add('showMenu');
-        closeIcon.style.display = 'block';
-        menuIcon.style.display = 'none';
-        menuOpen = true;
-
-    }
-}
-
-hamburger.addEventListener('click', menuToggle);
-
-menuItems.forEach(menuItem => {
-    menuItem.addEventListener('click', menuToggle);
-});
-
-docMain.addEventListener('click', () => {
-    if (menuOpen === true) {
-        menuToggle();
-        menuOpen = false;
-    }
-});
+//hamburger menu js
 
 //action handlers
 async function handlePageLoad() {
@@ -58,6 +22,23 @@ async function handlePageLoad() {
         return;
     }
     profile = await getProfile();
+    display();
+}
+
+function handleMenuToggle(menu, closeIcon, menuIcon) {
+    if (menu.classList.contains('showMenu')) {
+        menu.classList.remove('showMenu');
+        closeIcon.style.display = 'none';
+        menuIcon.style.display = 'block';
+        menuOpen = !menuOpen;
+
+    }
+    else {
+        menu.classList.add('showMenu');
+        closeIcon.style.display = 'block';
+        menuIcon.style.display = 'none';
+        menuOpen = !menuOpen;
+    }
     display();
 }
 
@@ -84,10 +65,12 @@ async function handleSignOut() {
 
 //components
 const User = createUser(document.querySelector('#user'), { handleSignOut });
+const NavBar = createNavBar(document, { handleMenuToggle });
 const UpsertProfile = createUpsertProfile(document.querySelector('.profile-form'), handleUpsertProfile);
 
 function display() {
     User({ user, profile });
+    NavBar({ menuOpen });
     UpsertProfile({ profile: profile });
 }
 

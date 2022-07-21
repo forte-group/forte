@@ -85,7 +85,7 @@ footer {
 .note-button:active {
     box-shadow: 0px 1px 15px 0px rgb(152, 2, 252);
     background-color: rgb(46, 5, 43);
-    
+
 }
 
 #controls {
@@ -180,11 +180,11 @@ footer {
     text-align: center;
     background-color: white;
     position: absolute;
-    top: 300px; 
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 500px;
 }
 
@@ -192,7 +192,7 @@ footer {
     background-color: black;
     color: rgb(185, 18, 177);
     height: 35px;
-    border: 1px solid rgb(247, 5, 235) ;
+    border: 1px solid rgb(247, 5, 235);
 }
 
 .streak-div {
@@ -261,5 +261,64 @@ a:hover {
 }
 
 
+li {
+    list-style: none;
+    margin: 10px;
+}
 
+a {
+    color: var(--purple);
+    text-decoration: none;
+}
 
+a:hover {
+    color: #e431fc;
+}
+
+.material-icons {
+    font-size: 2rem;
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 100;
+    top: 1rem;
+    left: 1rem;
+    padding: 4px;
+    border: white solid 2px;
+    background: #e431fc;
+    cursor: pointer;
+}
+
+#close-menu {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.3);
+    width: 20%;
+    height: 100vh;
+    color: white;
+    list-style: none;
+    padding-top: 4rem;
+
+}
+
+.showMenu {
+    transform: translateY(0);
+}
+
+.menu-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

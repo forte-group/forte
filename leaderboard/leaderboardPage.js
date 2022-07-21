@@ -4,12 +4,16 @@ import createUser from '../components/User.js';
 import { getLongestStreaks } from '../services/forte-service.js';
 import createLeaderboard from '../components/Leaderboard.js';
 import createPaging from '../components/Paging.js';
+import createNavBar from '../components/Nav.js';
 
 // State
 let user = null;
 let profile = null;
 let streaks = [];
 let length = 10;
+let menuOpen = false;
+
+//hamburger menu js
 
 // Action Handlers
 async function handlePageLoad() {
@@ -27,6 +31,24 @@ async function handlePageLoad() {
 
 async function handleSignOut() {
     await signOut();
+}
+
+
+function handleMenuToggle(menu, closeIcon, menuIcon) {
+    if (menu.classList.contains('showMenu')) {
+        menu.classList.remove('showMenu');
+        closeIcon.style.display = 'none';
+        menuIcon.style.display = 'block';
+        menuOpen = !menuOpen;
+
+    }
+    else {
+        menu.classList.add('showMenu');
+        closeIcon.style.display = 'block';
+        menuIcon.style.display = 'none';
+        menuOpen = !menuOpen;
+    }
+    display();
 }
 
 async function handleExpand() {
@@ -47,11 +69,13 @@ const User = createUser(
     { handleSignOut }
 );
 
+const NavBar = createNavBar(document, { handleMenuToggle });
 const Leaderboard = createLeaderboard(document.querySelector('#scores'));
 const Paging = createPaging(document.querySelector('#buttons-div'), { handleShrink, handleExpand });
 
 function display() {
     User({ user, profile });
+    NavBar({ menuOpen });
     Leaderboard({ streaks });
     Paging({ length });
 }

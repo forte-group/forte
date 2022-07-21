@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/leaderboard.css" />
@@ -19,12 +20,23 @@
 
 <body>
     <header>
-        <a href="/">Play!</a>
-        <h1>Top Players</h1>
-        <a href="../profile">Edit Profile</a>
+
+        <ul class="menu">
+            <li><a href="../" class="menu-option">Play</a></li>
+            <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
+            <li><a href="../About/" class="menu-option">About</a></li>
+        </ul>
+
+        <button class="hamburger">
+            <i class="material-icons" id="display-menu">menu</i>
+            <i class="material-icons" id="close-menu">close</i>
+        </button>
+
         <div id="user"></div>
+        <h1>Top Players</h1>
+
     </header>
-    
+
     <main>
         <span id="crown">👑</span>
         <section id="leaderboard">
