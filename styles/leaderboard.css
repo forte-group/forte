@@ -1,5 +1,8 @@
 #leaderboard {
     width: 75%;
+    background-color: rgba(0, 0, 0, 0.274);
+    display: flex;
+    justify-content: center;
 }
 
 #leaders {
@@ -27,7 +30,7 @@ ul {
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(242, 1, 250);
 
 }
 
@@ -37,12 +40,15 @@ ul {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+    border-right: 1px solid black;
 }
 
 .score-div {
     width: 25%;
     font-size: larger;
+    text-align: center;
 }
 
 #crown {
