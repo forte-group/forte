@@ -91,12 +91,13 @@ function handleGuessNote(note) {
     if (currentGuess.length < 8) {
         currentGuess.push(note);
     }
-    display();
+
+    gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
 function handleBackspace() {
     currentGuess.pop();
-    display();
+    gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
 async function handleGameEnd(result) {
@@ -136,7 +137,11 @@ function handleEnterGuess() {
 
     currentGuess = [];
     if (currentRow < 4) currentRow++;
-    display();
+    gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
+    if (currentRow === 4) {
+        Result({ result, end, currentStreak, longestStreak, sequence });
+    }
+    
 }
 
 // Components 
