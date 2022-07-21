@@ -45,6 +45,7 @@ menuItems.forEach(menuItem => {
 docMain.addEventListener('click', () => {
     if (menuOpen === true) {
         menuToggle();
+        menuOpen = false;
     }
 });
 
