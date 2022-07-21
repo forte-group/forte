@@ -1,3 +1,57 @@
+:root {
+    --black: rgb(5, 5, 5);
+    --neon: rgb(221, 3, 250);
+    --purple: #551a8b;
+    --grape: rgb(46, 5, 43);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container {
+    width: 100%;
+    background-color: var(--black);
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 0.2fr auto 1fr;
+    align-items: center;
+    height: 100px;
+}
+
+#navbar-logo {
+    color: var(--purple);
+    justify-self: start;
+    height: 100px;
+    margin: 10 auto;
+}
+
+#navbar-logo {
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    list-style: none;
+    text-align: center;
+    width: 70%;
+    justify-self: end;
+}
+
+.nav-links {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+.nav-links:hover {
+    color: var(--neon);
+}
+
 .avatar-preview {
     height: 100px;
     width: 100px;
@@ -6,11 +60,14 @@
     background-color: #72DDF7;
 }
 
+
+
 #user {
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
     align-items: center;
+    color: var(--purple)
 }
 
 #user img {
