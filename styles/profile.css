@@ -11,16 +11,13 @@
     padding: 0;
 }
 
-.nav-container {
-    width: 100%;
-    background-color: var(--black);
+li {
+    list-style: none;
 }
 
-.navbar {
-    display: grid;
-    grid-template-columns: 0.2fr auto 1fr;
-    align-items: center;
-    height: 100px;
+a {
+    color: var(--purple);
+    text-decoration: none;
 }
 
 #navbar-logo {
@@ -28,27 +25,16 @@
     justify-self: start;
     height: 100px;
     margin: 10 auto;
+    height: 100px;
+    color: #e431fc;
 }
 
-#navbar-logo {
-    cursor: pointer;
-}
-
-.nav-menu {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    list-style: none;
-    text-align: center;
-    width: 70%;
-    justify-self: end;
-}
-
-.nav-links {
+.nav-link {
     color: var(--purple);
     text-decoration: none;
 }
 
-.nav-links:hover {
+.nav-link:hover {
     color: var(--neon);
 }
 
@@ -60,58 +46,56 @@
     background-color: #72DDF7;
 }
 
-.menu-toggle .bar {
+.navbar {
+    min-height: 70px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    transition: all 0.3s ease-in-out;
-    background: var(--neon)
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    background-color: white;
 }
 
-@media screen and (max-width: 768px) {
-    .nav-container {
-        position: relative;
+@media(max-width:768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     .nav-menu {
-        display: grid;
-        grid-template-columns: auto;
-        background: var(--black);
-        margin: 0;
-        width: 100%;
-        position: absolute;
-        top: 80px;
+        position: fixed;
         left: -100%;
-        opacity: 0;
-        transition: all 0.5s ease;
-    }
-
-    #navbar-logo {
-        margin-left: 20px;
-    }
-
-    .nav-menu.active {
-        background: var(--neon);
-        left: 0;
-        opacity: 1;
-        transition: all 0.5s ease;
-    }
-
-    .nav-links {
-        text-align: center;
-        line-height: 60px;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
         width: 100%;
-        display: table;
-    }
-
-    .nav-links:hover {
-        background-color: var(--black);
-        color: var(--purple);
-        transition: all 0.4s ease-out;
-    }
-
-    .navbar {
-        width: 100;
+        transition: 0.4s;
     }
 }
 
@@ -126,14 +110,15 @@
 #user img {
     height: 40px;
     width: 40px;
-    border: solid 2px black;
+    border: solid 2px white;
     border-radius: 50%;
-    background-color: #fcfafa;
+    background-color: #72DDF7;
 }
 
 label img {
     margin-left: 20px;
     background-size: cover;
+
 }
 
 .profile-creation {
@@ -145,9 +130,12 @@ label img {
 .profile-form {
     display: flex;
     flex-direction: column;
-    border: solid 3px #615756;
-    background-color: #8093F1;
-    margin: 15px;
+    align-items: center;
+    align-content: center;
+    margin-inline: 200px;
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #e431fc;
 }
 
 .profile-form label {
@@ -162,4 +150,14 @@ label img {
     margin-bottom: 10px;
     border-radius: 8px;
     ;
+}
+
+body {
+    background-image: url("../assets/wallpaperflare.com_wallpaper\ \(1\).jpg");
+    background-size: 800px;
+}
+
+footer {
+    background-color: #05050596;
+    color: #e431fc;
 }
