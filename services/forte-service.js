@@ -25,19 +25,6 @@ export async function addStreak(streak, streakId, userId) {
     return checkResponse(response);
 }
 
-export async function getMostRecentStreak(userId) {
-    const response = await client
-        .from('leaderboard')
-        .select(`*,
-            profiles(*)
-        `)
-        .eq('id', userId)
-        .order('streakId', { ascending: false })
-        .limit(1);
-
-    return checkResponse(response);
-}
-
 export async function updateStreak(userId, streakId, streak) {
     const response = await client
         .from('leaderboard')
