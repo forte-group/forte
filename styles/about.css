@@ -1,7 +1,3 @@
-header {
-    display: none;
-}
-
 body {
     background-color: black;
     background-image: url("../assets/wp2343900.webp");
@@ -146,5 +142,69 @@ span {
         display: none;
     }
 
+
+}
+
+/* shan css for hamburger menu starts here */
+
+li {
+    list-style: none;
+    margin: 10px;
+}
+
+a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e431fc;
+}
+
+.material-icons {
+    font-size: 2rem;
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 100;
+    top: 1rem;
+    left: 1rem;
+    padding: 4px;
+    border: white solid 2px;
+    background: #e431fc;
+    cursor: pointer;
+}
+
+#close-menu {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.3);
+    width: 20%;
+    height: 100vh;
+    color: white;
+    list-style: none;
+    padding-top: 4rem;
+
+}
+
+.showMenu {
+    transform: translateY(0);
+}
+
+.menu-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
