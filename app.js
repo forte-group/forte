@@ -101,11 +101,13 @@ function handleGuessNote(note) {
         currentGuess.push(note);
     }
     EnterButton({ currentGuess });
+    BackspaceButton({ currentGuess });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
 function handleBackspace() {
     currentGuess.pop();
+    BackspaceButton({ currentGuess });
     EnterButton({ currentGuess });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }

@@ -5,7 +5,6 @@ export default function createEnterGuess(button, { handleEnterGuess }) {
     });
 
     return ({ currentGuess }) => {
-        console.log(currentGuess);
         button.disabled = currentGuess.length < 8;
     };
 }
