@@ -14,32 +14,32 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/profile.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Forte</title>
 </head>
 
 <body>
     <header>
+
+        <ul class="menu">
+            <li><a href="../" class="menu-option">Play</a></li>
+            <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
+            <li><a href="../About/" class="menu-option">About</a></li>
+        </ul>
+
+        <button class="hamburger">
+            <i class="material-icons" id="display-menu">menu</i>
+            <i class="material-icons" id="close-menu">close</i>
+        </button>
+
+        <img id="forte-img" src="../assets/lollo.jpg">
+
         <div id="user"></div>
+
     </header>
 
-    <div class="nav-container">
-        <nav class="navbar">
-            <img id="navbar-logo" src="../assets/lollo.jpg">
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="../" class="nav-link">Play</a></li>
-                <li><a href="../leaderboard" class="nav-link">Leaderboard</a></li>
-                <li><a href="../About" class="nav-link">About</a></li>
-            </ul>
-
-        </nav>
-    </div>
-
     <main>
+        <h1>Customize Your Profile!</h1>
         <section class="profile-update">
             <form class="profile-form">
                 <label>
