@@ -20,15 +20,15 @@ function Leader({ streak }) {
     const leaderSpan = document.createElement('span');
     leaderSpan.classList.add('leader-name');
 
-    img.src = streak.avatar_url;
-    leaderSpan.textContent = streak.username;
+    img.src = streak.profiles.avatar_url;
+    leaderSpan.textContent = streak.profiles.username;
 
     const scoreDiv = document.createElement('div');
     scoreDiv.classList.add('score-div');
 
     const scoreSpan = document.createElement('span');
     scoreSpan.classList.add('score');
-    scoreSpan.textContent = streak.longestStreak;
+    scoreSpan.textContent = streak.streak;
 
     leaderDiv.append(img, leaderSpan);
     scoreDiv.append(scoreSpan);
