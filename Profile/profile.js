@@ -17,10 +17,7 @@ async function handlePageLoad() {
     if (!user) {
         return;
     }
-    console.log(user);
     profile = await getProfile();
-    console.log(profile);
-
     display();
 }
 
