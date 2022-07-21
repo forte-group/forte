@@ -24,7 +24,7 @@ const scales = [['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'],
     ['C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5']
 ];
 let scaleIndex = 0;
-let notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
+let notes;
 let sequence = [];
 let currentGuess = [];
 let guessedSequences = [];
@@ -57,6 +57,11 @@ async function handlePageLoad() {
 
     }
 
+    const params = new URLSearchParams(window.location.search);
+    scaleIndex = params.get('scale') || 0;
+
+    notes = scales[scaleIndex];
+
     generateSequence();
 
     currentStreak = profile.currentStreak;
@@ -76,14 +81,10 @@ function generateSequence() {
 }
 
 function handleScaleSelect(index) {
+    const params = new URLSearchParams(window.location.search);
     scaleIndex = index;
-    notes = scales[scaleIndex];
-    generateSequence();
-    currentGuess = [];
-    guessedSequences = [];
-    correctNotes = [];
-    currentRow = 0;
-    display();
+    params.set('scale', scaleIndex);
+    window.location.search = params.toString();
 }
 
 function handleGuessNote(note) {
@@ -91,12 +92,13 @@ function handleGuessNote(note) {
     if (currentGuess.length < 8) {
         currentGuess.push(note);
     }
-
+    EnterButton({ currentGuess });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
 function handleBackspace() {
     currentGuess.pop();
+    EnterButton({ currentGuess });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
 }
 
@@ -122,7 +124,7 @@ async function handleGameEnd(result) {
 
 function handleEnterGuess() {
     guessedSequences.push(currentGuess);
-    let match = checkForMatch(currentGuess, sequence);
+    let match = checkForMatch(sequence, currentGuess);
     if (match || guessedSequences.length === 4) {
         result = match ? 1 : -1;
         handleGameEnd(result);
@@ -137,6 +139,8 @@ function handleEnterGuess() {
 
     currentGuess = [];
     if (currentRow < 4) currentRow++;
+    EnterButton({ currentGuess });
+    BackspaceButton({ currentGuess });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
     if (currentRow === 4) {
         Result({ result, end, currentStreak, longestStreak, sequence });
@@ -160,10 +164,10 @@ const Result = createResult(document.querySelector('#result'));
 
 function display() {
     User({ user, profile });
-    scaleSelect({ scaleNames, scales, notes });
+    scaleSelect({ scaleNames, scales, notes, scaleIndex });
     NoteButtons({ notes });
     EnterButton({ currentGuess });
-    BackspaceButton();
+    BackspaceButton({ currentGuess });
     Sequence({ sequence });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
     Result({ result, end, currentStreak, longestStreak, sequence });
