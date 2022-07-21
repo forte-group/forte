@@ -247,6 +247,18 @@ footer {
     cursor: pointer;
 }
 
+#result {
+    background-color: black;
+    color: rgb(201, 99, 196);
+}
+
+a {
+    color: #3057c2;
+}
+
+a:hover {
+    color: rgb(247, 5, 235);
+}
 
 
 
