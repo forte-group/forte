@@ -6,7 +6,7 @@ export default function createSequence(root) {
     let buttons;
     setTimeout(() => {
         buttons = root.querySelectorAll('button');
-    }, 500);
+    }, 800);
     const playButton = sequenceSection.querySelector('button');
     const sequenceDisplay = sequenceSection.querySelector('#sequence-display');
 
@@ -26,7 +26,6 @@ export default function createSequence(root) {
                 synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.6));
             }
 
-            // console.log(buttons);
             buttons.forEach(button => {
                 button.disabled = true;
                 setTimeout(() => {
