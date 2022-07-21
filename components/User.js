@@ -1,4 +1,4 @@
-export default function createUser(root, { handleSignOut }) {
+export default function createUser(root) {
 
     return ({ user, profile }) => {
 

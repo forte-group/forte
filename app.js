@@ -186,8 +186,7 @@ function handleEnterGuess() {
 
 // Components 
 const User = createUser(
-    document.querySelector('#user'),
-    { handleSignOut }
+    document.querySelector('#user')
 );
 
 const NavBar = createNavBar(document, { handleMenuToggle, handleSignOut });
