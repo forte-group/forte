@@ -13,10 +13,14 @@ body {
 header {
     background-color: #0a0a0a85;
     border: 3px solid black;
+    height: 100px;
+    color: #e431fc;
+    text-transform: capitalize;
 }
 
 footer {
-    background-color: #05050549;
+    background-color: #05050596;
+    color: #e431fc;
 }
 
 #game {
@@ -29,7 +33,7 @@ footer {
     border-radius: 10px;
     border: 6px solid #050505;
     box-shadow: 0px 1px 20px 0px rgb(250, 42, 205);
-    font-family: cursive;
+    font-family: monospace, sans-serif;
     font-size: 20px;
 }
 
@@ -142,6 +146,7 @@ footer {
     gap: 10px;
     position: relative;
     top: -8px;
+    margin-top: 29px;
 }
 
 #play-sequence button {
@@ -154,8 +159,6 @@ footer {
     height: 50px;
     width: 50px;
     font-size: 25px;
-    display: flex;
-    align-self: center;
 }
 
 #sequence-display {
@@ -170,6 +173,7 @@ footer {
     border: 1px solid rgba(230, 6, 250, 0.493);
     background-color: #050400;
     width: 20px;
+    height: 60px;
 }
 
 #result {
