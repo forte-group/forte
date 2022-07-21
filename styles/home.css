@@ -113,7 +113,7 @@ footer {
 }
 
 .correct {
-    background-color: green;
+    background-color: rgb(38, 6, 80);
 }
 
 #user img {
@@ -154,7 +154,7 @@ footer {
     background-color: black;
     border: none;
     color: rgb(247, 5, 235);
-    text-shadow: 0 0 0.5em rgb(247, 5, 235);
+    text-shadow: 0 0 0.5em rgb(163, 50, 163);
     cursor: pointer;
     height: 50px;
     width: 50px;
@@ -190,7 +190,7 @@ footer {
 
 #scale-select {
     background-color: black;
-    color: rgb(247, 5, 235);
+    color: rgb(185, 18, 177);
     height: 35px;
     border: 1px solid rgb(247, 5, 235) ;
 }
