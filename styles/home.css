@@ -14,10 +14,13 @@ header {
     background-color: #0a0a0a85;
     border: 3px solid black;
     height: 100px;
+    color: #e431fc;
+    text-transform: capitalize;
 }
 
 footer {
-    background-color: #05050549;
+    background-color: #05050596;
+    color: #e431fc;
 }
 
 #game {
