@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/home.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.js"
         integrity="sha512-59wz3/QJMP1QgULLB5O08pqS8wIdlvK1iJaRZm6ESyRrUuxjdRrnKepXKbSTbjX3ZZZ19AbiCJZEaZN7Zm8OjQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -23,7 +24,16 @@
 <body>
     <header>
         <img>
-        <a href="./leaderboard" id="leaderboard-link">View Leaderboard</a>
+        <ul class="menu">
+            <li><a href="../" class="menu-option">Play</a></li>
+            <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
+            <li><a href="../About/" class="menu-option">About</a></li>
+        </ul>
+
+        <button class="hamburger">
+            <i class="material-icons" id="display-menu">menu</i>
+            <i class="material-icons" id="close-menu">close</i>
+        </button>
         <div id="header-image-div">
             <a href="./About"><img id="forte-img" src="./assets/lollo.jpg"></a>
         </div>
@@ -41,7 +51,7 @@
                 </div>
             </div>
             <div id="game-grid">
-    
+
             </div>
             <div id="note-buttons">
             </div>

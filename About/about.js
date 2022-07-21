@@ -1,50 +1,33 @@
 //hamburger menu js
+import createNavBar from '../components/Nav.js';
+
 let menuOpen = false;
 
-const menu = document.querySelector('.menu');
-const menuItems = document.querySelectorAll('.menu-option');
-const hamburger = document.querySelector('.hamburger');
-const menuIcon = document.querySelector('#display-menu');
-const closeIcon = document.querySelector('#close-menu');
-const docBod = document.querySelector('body');
+function handlePageLoad() {
+    display();
+}
 
-function menuToggle() {
+function handleMenuToggle(menu, closeIcon, menuIcon) {
     if (menu.classList.contains('showMenu')) {
         menu.classList.remove('showMenu');
         closeIcon.style.display = 'none';
         menuIcon.style.display = 'block';
-        console.log('inside if');
+        menuOpen = !menuOpen;
 
     }
     else {
         menu.classList.add('showMenu');
         closeIcon.style.display = 'block';
         menuIcon.style.display = 'none';
-        menuOpen = true;
-        console.log('inside else');
-
+        menuOpen = !menuOpen;
     }
+    display();
 }
 
-hamburger.addEventListener('click', (e) => {
-    e.stopImmediatePropagation();
+const NavBar = createNavBar(document, { handleMenuToggle });
 
-    menuToggle();
-});
+function display() {
+    NavBar({ menuOpen });
+}
 
-menuItems.forEach(menuItem => {
-    menuItem.addEventListener('click', (e) => {
-        e.stopImmediatePropagation();
-
-        menuToggle();
-    });
-});
-
-docBod.addEventListener('click', (e) => {
-    e.stopImmediatePropagation();
-
-    if (menuOpen === true) {
-        menuToggle();
-        menuOpen = false;
-    }
-});
+handlePageLoad();
