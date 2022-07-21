@@ -1,5 +1,13 @@
 import { checkResponse, client } from './client.js';
 
+export async function getProfileCount() {
+    const response = await client
+        .from('profiles')
+        .select(`*`, { count: 'exact' });
+    
+    return response.count;
+}
+
 export async function getLongestStreaks(length) {
     const response = await client
         .from('leaderboard')
@@ -16,7 +24,7 @@ export async function addStreak(streak, streakId, userId) {
     const response = await client
         .from('leaderboard')
         .insert({
-            id: userId,
+            profile_id: userId,
             streakId,
             streak
         })
@@ -41,12 +49,10 @@ export async function getMostRecentStreak(userId) {
 export async function updateStreak(userId, streakId, streak) {
     const response = await client
         .from('leaderboard')
-        .upsert({
-            id: userId,
-            streakId,
+        .update({
             streak
         })
-        .eq('id', userId)
+        .eq('profile_id', userId)
         .eq('streakId', streakId)
         .single();
     
