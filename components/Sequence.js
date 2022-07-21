@@ -19,12 +19,14 @@ export default function createSequence(root) {
 
         sequenceSection.append(sequenceDisplay);
 
-        playButton.addEventListener('click', () => {
+        playButton.addEventListener('click', (e) => {
+            e.stopImmediatePropagation();
             const now = Tone.now();
             for (let i = 0; i < sequence.length; i++) {
                 synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.6));
             }
 
+            // console.log(buttons);
             buttons.forEach(button => {
                 button.disabled = true;
                 setTimeout(() => {
