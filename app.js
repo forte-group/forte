@@ -8,6 +8,7 @@ import createGameGrid from './components/GameGrid.js';
 import createBackspace from './components/Backspace.js';
 import createResult from './components/Result.js';
 import createScaleSelect from './components/ScaleSelect.js';
+import { addStreak, updateStreak } from './services/forte-service.js';
 
 // State
 export const synth = new Tone.Synth().toDestination();
@@ -37,6 +38,8 @@ let result = -1;
 let currentStreak = 0;
 let longestStreak = 0;
 
+let numOfStreaks = 0;
+
 // Action Handlers
 async function handlePageLoad() {
     user = getUser();
@@ -56,6 +59,8 @@ async function handlePageLoad() {
         profile = await updateProfile(update);
 
     }
+
+    numOfStreaks = profile.numberOfStreaks;
 
     const params = new URLSearchParams(window.location.search);
     scaleIndex = params.get('scale') || 0;
@@ -106,8 +111,18 @@ async function handleGameEnd(result) {
     end = true;
 
     if (result === 1) {
-        currentStreak++;
-        if (currentStreak > longestStreak) longestStreak = currentStreak;
+        if (currentStreak === 0) {
+            currentStreak++;
+            if (currentStreak > longestStreak) longestStreak = currentStreak;
+            await addStreak(currentStreak, numOfStreaks, user.id);
+            numOfStreaks++;
+            await updateProfile({ id: user.id, numberOfStreaks: numOfStreaks });
+        }
+        else {
+            currentStreak++;
+            if (currentStreak > longestStreak) longestStreak = currentStreak;
+            await updateStreak(user.id, numOfStreaks, currentStreak);
+        }
     }
     if (result === -1) {
         currentStreak = 0;
@@ -142,7 +157,7 @@ function handleEnterGuess() {
     EnterButton({ currentGuess });
     BackspaceButton({ currentGuess });
     gameGrid({ currentGuess, correctNotes, guessedSequences, currentRow });
-    if (currentRow === 4) {
+    if (currentRow === 4 || result === 1) {
         Result({ result, end, currentStreak, longestStreak, sequence });
     }
     
