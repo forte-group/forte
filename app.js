@@ -18,12 +18,12 @@ let user = null;
 let profile = null;
 const scaleNames = ['Ionian (standard major)', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian (natural minor)', 'Locrian'];
 const scales = [['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'],
-['C4', 'D4', 'Eb4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
-['C4', 'Db4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
-['C4', 'D4', 'E4', 'Gb4', 'G4', 'A4', 'B4', 'C5'],
-['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
-['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
-['C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5']
+    ['C4', 'D4', 'Eb4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
+    ['C4', 'Db4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
+    ['C4', 'D4', 'E4', 'Gb4', 'G4', 'A4', 'B4', 'C5'],
+    ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'Bb4', 'C5'],
+    ['C4', 'D4', 'Eb4', 'F4', 'G4', 'Ab4', 'Bb4', 'C5'],
+    ['C4', 'Db4', 'Eb4', 'F4', 'Gb4', 'Ab4', 'Bb4', 'C5']
 ];
 let scaleIndex = 0;
 let notes;
