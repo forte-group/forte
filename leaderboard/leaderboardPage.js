@@ -69,7 +69,7 @@ const User = createUser(
     { handleSignOut }
 );
 
-const NavBar = createNavBar(document, { handleMenuToggle });
+const NavBar = createNavBar(document, { handleMenuToggle, handleSignOut });
 const Leaderboard = createLeaderboard(document.querySelector('#scores'));
 const Paging = createPaging(document.querySelector('#buttons-div'), { handleShrink, handleExpand });
 

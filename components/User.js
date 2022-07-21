@@ -30,23 +30,8 @@ export default function createUser(root, { handleSignOut }) {
 
         userDisplay.append(avatarDisplay, nameDisplay);
 
-        const signOutLink = document.createElement('a');
-        signOutLink.textContent = 'Sign out';
-        signOutLink.href = '/auth';
-        signOutLink.addEventListener('click', async () => {
-            await handleSignOut();
-        });
 
-        const updateProfileLink = document.createElement('a');
-        updateProfileLink.textContent = 'Profile';
-        updateProfileLink.href = '../Profile';
-
-        const linkDiv = document.createElement('div');
-        linkDiv.id = 'user-links';
-
-        linkDiv.append(updateProfileLink, signOutLink);
-
-        root.append(userDisplay, linkDiv);
+        root.append(userDisplay);
     };
 }
 
