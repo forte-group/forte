@@ -38,7 +38,7 @@ export default function createUser(root, { handleSignOut }) {
         });
 
         const updateProfileLink = document.createElement('a');
-        updateProfileLink.textContent = 'Update Profile';
+        updateProfileLink.textContent = 'Profile';
         updateProfileLink.href = '../Profile';
 
         const linkDiv = document.createElement('div');
