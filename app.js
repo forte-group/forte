@@ -83,12 +83,6 @@ function generateSequence() {
 function handleScaleSelect(index) {
     const params = new URLSearchParams(window.location.search);
     scaleIndex = index;
-    notes = scales[scaleIndex];
-    generateSequence();
-    currentGuess = [];
-    guessedSequences = [];
-    correctNotes = [];
-    currentRow = 0;
     params.set('scale', scaleIndex);
     window.location.search = params.toString();
 }
