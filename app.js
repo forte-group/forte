@@ -186,11 +186,10 @@ function handleEnterGuess() {
 
 // Components 
 const User = createUser(
-    document.querySelector('#user'),
-    { handleSignOut }
+    document.querySelector('#user')
 );
 
-const NavBar = createNavBar(document, { handleMenuToggle });
+const NavBar = createNavBar(document, { handleMenuToggle, handleSignOut });
 const scaleSelect = createScaleSelect(document.querySelector('#scale-select'), { handleScaleSelect });
 const Sequence = createSequence(document.querySelector('main'));
 const NoteButtons = createNoteButtons(document.querySelector('#note-buttons'), { handleGuessNote });

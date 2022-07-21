@@ -65,7 +65,7 @@ async function handleSignOut() {
 
 //components
 const User = createUser(document.querySelector('#user'), { handleSignOut });
-const NavBar = createNavBar(document, { handleMenuToggle });
+const NavBar = createNavBar(document, { handleMenuToggle, handleSignOut });
 const UpsertProfile = createUpsertProfile(document.querySelector('.profile-form'), handleUpsertProfile);
 
 function display() {

@@ -1,5 +1,6 @@
 //hamburger menu js
 import createNavBar from '../components/Nav.js';
+import { signOut } from '../services/auth-service.js';
 
 let menuOpen = false;
 
@@ -24,7 +25,12 @@ function handleMenuToggle(menu, closeIcon, menuIcon) {
     display();
 }
 
-const NavBar = createNavBar(document, { handleMenuToggle });
+async function handleSignOut() {
+    await signOut();
+}
+
+
+const NavBar = createNavBar(document, { handleMenuToggle, handleSignOut });
 
 function display() {
     NavBar({ menuOpen });
