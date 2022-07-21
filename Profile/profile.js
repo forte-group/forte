@@ -9,6 +9,45 @@ import { protectPage } from '../utils.js';
 let user = null;
 let profile = null;
 
+
+//hamburger menu js
+let menuOpen = false;
+
+const menu = document.querySelector('.menu');
+const menuItems = document.querySelectorAll('.menu-option');
+const hamburger = document.querySelector('.hamburger');
+const menuIcon = document.querySelector('#display-menu');
+const closeIcon = document.querySelector('#close-menu');
+const docMain = document.querySelector('main');
+
+function menuToggle() {
+    if (menu.classList.contains('showMenu')) {
+        menu.classList.remove('showMenu');
+        closeIcon.style.display = 'none';
+        menuIcon.style.display = 'block';
+
+    }
+    else {
+        menu.classList.add('showMenu');
+        closeIcon.style.display = 'block';
+        menuIcon.style.display = 'none';
+        menuOpen = true;
+
+    }
+}
+
+hamburger.addEventListener('click', menuToggle);
+
+menuItems.forEach(menuItem => {
+    menuItem.addEventListener('click', menuToggle);
+});
+
+docMain.addEventListener('click', () => {
+    if (menuOpen === true) {
+        menuToggle();
+    }
+});
+
 //action handlers
 async function handlePageLoad() {
     user = getUser();
