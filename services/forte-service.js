@@ -1,13 +1,5 @@
 import { checkResponse, client } from './client.js';
 
-export async function getProfileCount() {
-    const response = await client
-        .from('profiles')
-        .select(`*`, { count: 'exact' });
-    
-    return response.count;
-}
-
 export async function getLongestStreaks(length) {
     const response = await client
         .from('leaderboard')
