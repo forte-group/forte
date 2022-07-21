@@ -49,15 +49,14 @@ a {
 .navbar {
     min-height: 70px;
     display: flex;
-    flex-flow: row nowrap;
+    justify-content: start;
     align-items: center;
-    gap: 20px;
+    padding: 0 20px;
 
 }
 
-
 .hamburger {
-    display: none;
+    display: block;
     cursor: pointer;
 }
 
@@ -89,13 +88,10 @@ a {
     }
 
     .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        gap: 0;
-        flex-direction: column;
-        width: 100%;
-        transition: 0.4s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
     }
 }
 
@@ -135,6 +131,7 @@ label img {
     margin-inline: 200px;
     margin-top: 40px;
     padding: 15px;
+    border-radius: 10px;
     background-color: #e431fc;
 }
 
