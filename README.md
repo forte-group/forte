@@ -1,3 +1,7 @@
+## Miro Board Planning
+
+https://miro.com/app/board/uXjVOl1VPcU=/?share_link_id=219528212322
+
 ## The Golden Rule
 
 🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
