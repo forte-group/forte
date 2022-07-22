@@ -8,9 +8,9 @@
 .avatar-preview {
     height: 100px;
     width: 100px;
-    border: solid 1px black;
+    border: solid 1px rgb(12, 7, 14);
     border-radius: 50%;
-    background-color: #72DDF7;
+    background-color: #43EDF8;
 }
 
 #user {
@@ -31,7 +31,6 @@
 label img {
     margin-left: 20px;
     background-size: cover;
-
 }
 
 .profile-creation {
@@ -40,16 +39,28 @@ label img {
     align-items: center;
 }
 
+.profile-update {
+    display: flex;
+    justify-content: center;
+}
+
 .profile-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
+    justify-content: center;
     margin-inline: 200px;
-    margin-top: 40px;
+    margin-top: 45px;
     padding: 15px;
     border-radius: 10px;
-    background-color: #e431fc;
+    background-color: #0d0b0ec9;
+    color: #43EDF8;
+    height: 350px;
+    width: 550px;
+    font-family: monospace;
+    font-size: 25px;
+    text-transform: uppercase;
 }
 
 .profile-form label {
@@ -67,8 +78,9 @@ label img {
 }
 
 body {
-    background-image: url("../assets/wallpaperflare.com_wallpaper\ \(1\).jpg");
-    background-size: 800px;
+    background-image: url("../assets/wallpaperflare.com_wallpaper.jpg");
+    background-size: auto;
+    background-position: 50%;
 }
 
 header {
@@ -94,6 +106,8 @@ h1 {
     color: #e431fc;
     text-align: center;
     width: auto;
+    font-family: monospace;
+    font-size: 35px;
 }
 
 li {
