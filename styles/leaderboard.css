@@ -1,6 +1,23 @@
+
+body {
+    background-image: url("../assets/prev-01-.jpg");
+    background-size: auto;
+    background-position: 50%;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.548);
+    border: none;
+}
+
+header h1 {
+    color: #e431fc;
+    text-align: center;
+}
+
 #leaderboard {
     width: 75%;
-    background-color: rgba(0, 0, 0, 0.274);
+    background-color: rgba(0, 0, 0, 0.705);
     display: flex;
     justify-content: center;
 }
@@ -30,7 +47,7 @@ ul {
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgb(242, 1, 250);
+    border-bottom: 1px solid rgb(252, 3, 252);
 
 }
 
@@ -42,7 +59,6 @@ ul {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    border-right: 1px solid black;
 }
 
 .score-div {
@@ -51,8 +67,26 @@ ul {
     text-align: center;
 }
 
-#crown {
-    padding-top: 15px;
+.leader-name {
+    color: #39E1EB;
+    font-size: large;
+}
+
+.score {
+    color: #ff04d5;
+    font-size: 30px;
+}
+
+#buttons-div button {
+    color: #fd05d4;
+    background-color: black;
+    border-radius: 5px;
+    border: 2px solid rgb(247, 5, 235);
+    margin-right: 100px;
+    height: 40px;
+    width: 100px;
+    text-shadow: 0 0 0.3em rgb(247, 5, 235);
+    cursor: pointer;
 }
 
 /* shan css for hamburger menu starts here */
