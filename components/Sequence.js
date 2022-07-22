@@ -1,36 +1,59 @@
 import { synth } from '../app.js';
 
-// duration of 8th note = 500 ms
-
 export default function createSequence(root) {
 
-    const playButton = root.querySelector('button');
-    const sequenceDisplay = root.querySelector('#sequence-display');
+    const sequenceSection = root.querySelector('#sequence');
+    let buttons;
+    setTimeout(() => {
+        buttons = root.querySelectorAll('button');
+    }, 800);
+    const playButton = sequenceSection.querySelector('button');
+    const sequenceDisplay = sequenceSection.querySelector('#sequence-display');
 
     return ({ sequence }) => {
         sequenceDisplay.innerHTML = '';
 
         for (let i = 0; i < sequence.length; i++) {
-            sequenceDisplay.append(SequenceNote({ i }));
+            sequenceDisplay.append(SequenceNote());
         }
 
-        playButton.addEventListener('click', () => {
+        sequenceSection.append(sequenceDisplay);
+
+        playButton.addEventListener('click', (e) => {
+            e.stopImmediatePropagation();
             const now = Tone.now();
             for (let i = 0; i < sequence.length; i++) {
-                synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.5));
+                synth.triggerAttackRelease(sequence[i], '8n', now + (i * 0.6));
             }
-            playButton.disabled = true;
-            setTimeout(() => {
-                playButton.disabled = false;
-            }, 4000);
+
+            buttons.forEach(button => {
+                button.disabled = true;
+                setTimeout(() => {
+                    button.disabled = false;
+                }, 5000);
+            });
+
+            const sequenceDivs = sequenceSection.querySelectorAll('.sequence-div');
+            let i = 0;
+
+            function displayAudio() {
+                sequenceDivs[i].style.backgroundColor = 'pink';                        
+                setTimeout(function() {   
+                    sequenceDivs[i].style.backgroundColor = 'black';                        
+                    i++;                    
+                    if (i < 8) {          
+                        displayAudio();            
+                    }                       
+                }, 600);
+            }            
+            displayAudio(); 
         });
 
     };
 }
 
-function SequenceNote({ id }) {
+function SequenceNote() {
     const div = document.createElement('div');
-    div.id = id;
     div.classList.add('sequence-div');
 
     return div;

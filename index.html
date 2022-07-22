@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/x-icon" href="./assets/alchemy-favicon.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/lollo.jpg" />
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,39 +14,55 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/home.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.js" integrity="sha512-59wz3/QJMP1QgULLB5O08pqS8wIdlvK1iJaRZm6ESyRrUuxjdRrnKepXKbSTbjX3ZZZ19AbiCJZEaZN7Zm8OjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.js"
+        integrity="sha512-59wz3/QJMP1QgULLB5O08pqS8wIdlvK1iJaRZm6ESyRrUuxjdRrnKepXKbSTbjX3ZZZ19AbiCJZEaZN7Zm8OjQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Forte</title>
 </head>
 
 <body>
     <header>
         <img>
-        <h1>Forte</h1>
+        <ul class="menu">
+            <li><a href="./" class="menu-option">Play</a></li>
+            <li><a href="./leaderboard" class="menu-option">Leaderboard</a></li>
+            <li><a href="./About/" class="menu-option">About</a></li>
+            <li><a href="./Profile/" class="menu-option">Profile</a></li>
+
+        </ul>
+
+        <button class="hamburger">
+            <i class="material-icons" id="display-menu">menu</i>
+            <i class="material-icons" id="close-menu">close</i>
+        </button>
+        <div id="header-image-div">
+            <a href="./About"><img id="forte-img" src="./assets/lollo.jpg"></a>
+        </div>
         <div id="user"></div>
     </header>
 
     <main>
-        <div id="sequence">
-            <div id="play-sequence">
-                <span>Play Sequence:</span>
-                <button id="play-button">▶︎</button>
+        <div id="game">
+            <div id="sequence">
+                <div id="sequence-display"></div>
+                <select id="scale-select"></select>
+                <div id="play-sequence">
+                    <!-- <span>Play:</span> -->
+                    <button id="play-button">▶</button>
+                </div>
             </div>
-            <div id="sequence-display"></div>
-        </div>
-        <div id="game-grid">
-            
-        </div>
-        <div id="note-buttons"></div>
-        <div id="controls">
-            <button id="backspace">Backspace</button>
-            <button id="enter">Enter</button>
-        </div>
-        <div class="pop-up hidden">
-            <span>You <span id="result-display"></span></span>
-            <span class="streak">Current Streak: <span id="current-streak"></span></span>
-            <span class="streak">Longest Streak: <span id="longest-streak"></span></span>
-            <button>Play Again</button>
-            <button>View Leaderboard</button>
+            <div id="game-grid">
+
+            </div>
+            <div id="note-buttons">
+            </div>
+            <div id="controls">
+                <button id="backspace">Backspace</button>
+                <button id="enter">Enter</button>
+            </div>
+            <div class="pop-up" id="result">
+            </div>
         </div>
     </main>
 

@@ -5,35 +5,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="image/x-icon" href="./assets/alchemy-favicon.png" />
+    <link rel="icon" type="image/x-icon" href="../assets/lollo.jpg" />
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
-    <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/leaderboard.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/leaderboard.css" />
     <title>Forte</title>
 </head>
 
 <body>
     <header>
-        <a href="/">Play!</a>
-        <h1>Top Players</h1>
-        <a href="../profile">Edit Profile</a>
+
+        <ul class="menu">
+            <li><a href="../" class="menu-option">Play</a></li>
+            <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
+            <li><a href="../About/" class="menu-option">About</a></li>
+            <li><a href="../Profile/" class="menu-option">Profile</a></li>
+        </ul>
+
+        <button class="hamburger">
+            <i class="material-icons" id="display-menu">menu</i>
+            <i class="material-icons" id="close-menu">close</i>
+        </button>
+
         <div id="user"></div>
+        <h1>Top Players</h1>
+        <h2>Ranked by Longest Win Streak</h2>
+
     </header>
 
     <main>
         <section id="leaderboard">
             <ul id="scores"></ul>
+            <div id="buttons-div">
+                <button id="see-more-button">See More</button>
+                <button id="see-less-button" class="hidden">See Less</button>
+            </div>
         </section>
     </main>
 
-    <footer>&copy;2022 Aspiring Software Developer</footer>
-
-    <script type="module" src="app.js"></script>
+    <script type="module" src="leaderboardPage.js"></script>
 </body>
 
 </html>

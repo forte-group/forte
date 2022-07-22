@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/x-icon" href="../assets/lollo.jpg" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <!-- <link rel="stylesheet" href="../styles/main.css" /> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/about.css" />
+    <title>Forte</title>
+</head>
+
+<header>
+    <ul class="menu">
+        <li><a href="../" class="menu-option">Play</a></li>
+        <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
+        <li><a href="../About/" class="menu-option">About</a></li>
+        <li><a href="../Profile/" class="menu-option">Edit Profile</a></li>
+    </ul>
+
+    <button class="hamburger">
+        <i class="material-icons" id="display-menu">menu</i>
+        <i class="material-icons" id="close-menu">close</i>
+    </button>
+
+    <div id="user"></div>
+</header>
+
+<body>
+    <main>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+        <section id="team">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <img id="team-logo" src="../assets/PhotoFunia-1658425235.jpg">
+                        <!-- <p>We are a team of three software developers passionate about music</p> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="../assets/linkedin-profilepic.jpeg"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4>Dillon Brock</h4>
+                                <span>Full Stack Software Developer</span>
+                                <span>Bluegrass Musician</span>
+                                <span>Math Fanatic</span>
+                                <span></span>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/dillon-brock/"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/dillon-brock"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="hidden">
+                                <h4>Dillon Brock</h4>
+                                <span>Full-Stack Software Developer</span>
+                                <span>Bluegrass Musician</span>
+                                <span>Math Fanatic</span>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/dillon-brock/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/dillon-brock"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="../assets/linkpic2.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4>Shan Hathaway</h4>
+                                <span>Full-Stack Software Developer</span>
+                                <span>Admirer of Harps</span>
+                                <span>Climber of Rocks</span>
+                                <span>Loser of Chess games</span>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/shan-hathaway/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/Hathaway-Shan"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="hidden">
+                                <h4>Shan Hathaway</h4>
+                                <span>Full-Stack Software Developer</span>
+                                <span>Admirer of Harps</span>
+                                <span>Climber of Rocks</span>
+                                <span>Loser of Chess games</span>
+                                <a href="https://www.linkedin.com/in/shan-hathaway/"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/Hathaway-Shan"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="member">
+                            <div class="member-img">
+                                <img id="jess-img" src="../assets/IMG-20210930-WA0005.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4>Jessica Martin</h4>
+                                <span>Full-Stack Software Developer</span>
+                                <span>Accordian Enthusiast</span>
+                                <span>Mushroom Nerd</span>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/jessica-martin5564/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/Jmart5564"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="hidden">
+                                <h4>Jessica Martin</h4>
+                                <span>Full-Stack Software Developer</span>
+                                <span>Accordian Enthusiast</span>
+                                <span>Mushroom Nerd</span>
+                                <div class="social-links">
+                                    <a href="https://www.linkedin.com/in/jessica-martin5564/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://github.com/Jmart5564"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./about.js"></script>
+</body>
+
+</html>

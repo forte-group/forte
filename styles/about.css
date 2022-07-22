@@ -1,0 +1,231 @@
+body {
+    background-color: black;
+    background-image: url("../assets/wp2343900.webp");
+    background-size: auto;
+    background-position: 50%;
+}
+
+
+#team {
+    padding: 60px 0;
+    text-align: center;
+    color: #090a0a;
+    font-family: monospace;
+}
+
+#team h2 {
+    position: relative;
+    padding: 0px 0px 15px;
+}
+
+#team p {
+    font-size: 15px;
+    font-style: italic;
+    padding: 0px;
+    margin: 25px 0px 40px;
+    color: #f7750b;
+}
+
+#team h2::after {
+    content: '';
+    border-bottom: 2px solid rgb(10, 7, 7);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 90px;
+    margin: 0 auto;
+    display: block;
+}
+
+#team .member {
+    width: 200px;
+    margin-right: 15px;
+    position: relative;
+    overflow: hidden;
+    background-color: #0a0600b4;
+    border: 3px solid #0d6fd8;
+    padding: 10px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: inset 0px 1px 15px 5px rgba(6, 135, 241, 0.4), 5px 5px 20px 5px rgba(6, 174, 241, 0.4);
+}
+
+#team .member .member-info {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: -220px;
+    transition: 0.4s;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.616);
+}
+
+#team .member:hover .member-info {
+    left: 0px;
+    right: 0px;
+}
+
+#team .member h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+    color: #fff;
+}
+
+#team .member span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+}
+
+#team .member .social-links {
+    margin-top: 15px;
+}
+
+#team .member .social-links a {
+    transition: none;
+    color: #fff;
+}
+
+#team .member .social-links a:hover {
+    color: #07cdff;
+}
+
+#team .member .social-links i {
+    font-size: 18px;
+    margin: 0 2px;
+}
+
+.img-fluid {
+    height: 140px;
+    width: 140px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    color: rgb(250, 144, 6);
+}
+
+#forte-link {
+    height: 60px;
+}
+
+.hidden {
+    display: none;
+}
+
+#team-logo {
+    width: 400px;
+    margin-bottom: 50px;
+}
+
+button.hamburger {
+    background-color: black;
+    color: rgb(224, 5, 253);
+    border: 2px solid rgb(195, 3, 253);
+    box-shadow: 0px 1px 15px 0px rgb(243, 72, 166), inset 0px 1px 10px 0px rgb(115, 42, 250);
+}
+
+.menu-option {
+    color: rgb(245, 207, 250);
+    font-family: monospace;
+    font-size: 20px;
+}
+
+
+@media (max-width: 600px) {
+    .row {
+        display: grid;
+    }
+
+    .member {
+        margin-bottom: 10px;
+        background-color: black;
+    }
+
+    span, .social-links {
+        background-color: #090a0a;
+    }
+
+    .hidden {
+        display: contents;
+    }
+
+    .member-info {
+        display: none;
+    }
+
+    #team .member:hover .member-info {
+        display: none;
+    }
+
+
+}
+
+/* shan css for hamburger menu starts here */
+
+li {
+    list-style: none;
+    margin: 10px;
+}
+
+a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e431fc;
+}
+
+.material-icons {
+    font-size: 2rem;
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 100;
+    top: 1rem;
+    left: 1rem;
+    padding: 4px;
+    border: white solid 2px;
+    background: #e431fc;
+    cursor: pointer;
+}
+
+#close-menu {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.3);
+    width: 20%;
+    height: 100vh;
+    color: white;
+    list-style: none;
+    padding-top: 4rem;
+
+}
+
+.showMenu {
+    transform: translateY(0);
+}
+
+.menu-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

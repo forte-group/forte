@@ -1,6 +1,40 @@
+
+body {
+    background-image: url("../assets/prev-01-.jpg");
+    background-size: auto;
+    background-position: 50%;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.705);
+    border: none;
+    flex-direction: column;
+    font-family: monospace;
+    font-size: larger;
+}
+
+
+header h1 {
+    color: #e431fc;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+header h2 {
+    color: #e431fc;
+    text-align: center;
+}
+
 #leaderboard {
-    display: grid;
-    grid-template-areas: "leaders scores"
+    width: 75%;
+    background-color: rgba(0, 0, 0, 0.705);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 70px;
+    overflow: scroll;
 }
 
 #leaders {
@@ -8,5 +42,140 @@
 }
 
 #scores {
-    grid-area: scores
+    grid-area: scores;
+    margin-bottom: 16px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    min-height: fit-content;
+}
+
+.avatar {
+    height: 50px;
+}
+
+ul {
+    width: 75%;
+}
+
+.leaderboard-element {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(252, 3, 252);
+
+}
+
+.leader {
+    width: 75%;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.score-div {
+    width: 25%;
+    font-size: larger;
+    text-align: center;
+}
+
+.leader-name {
+    color: #39E1EB;
+    font-size: large;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.score {
+    color: #ff04d5;
+    font-size: 30px;
+}
+
+#buttons-div {
+    margin-top: 8px;
+    display: flex;
+    width: 230px;
+    justify-content: center;
+    gap: 20px;
+}
+
+#buttons-div button {
+    color: #fd05d4;
+    background-color: black;
+    border-radius: 5px;
+    border: 2px solid rgb(247, 5, 235);
+    height: 40px;
+    width: 100px;
+    text-shadow: 0 0 0.3em rgb(247, 5, 235);
+    box-shadow: 0 0 0.5em rgb(247, 5, 235), inset 0 0 0.5em rgb(247, 5, 235);
+    cursor: pointer;
+}
+
+/* shan css for hamburger menu starts here */
+
+li {
+    list-style: none;
+    margin: 10px;
+}
+
+a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e431fc;
+}
+
+.material-icons {
+    font-size: 2rem;
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 100;
+    top: 1rem;
+    left: 1rem;
+    padding: 4px;
+    border: white solid 2px;
+    background: #e431fc;
+    cursor: pointer;
+}
+
+#close-menu {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.3);
+    width: 20%;
+    height: 100vh;
+    color: white;
+    list-style: none;
+    padding-top: 4rem;
+
+}
+
+.showMenu {
+    transform: translateY(0);
+}
+
+.menu-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }

@@ -11,5 +11,17 @@ export function getAuthRedirect() {
 }
 
 export function checkForMatch(arr1, arr2) {
-    return arr1 === arr2;
+
+    let matches = 0;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] === arr2[i]) {
+            matches++;
+        }
+    }
+    if (matches === arr1.length) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

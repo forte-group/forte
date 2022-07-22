@@ -1,4 +1,4 @@
-export default function createUser(root, { handleSignOut }) {
+export default function createUser(root) {
 
     return ({ user, profile }) => {
 
@@ -25,14 +25,13 @@ export default function createUser(root, { handleSignOut }) {
             nameDisplay.textContent = username;
         }
 
-        const signOutLink = document.createElement('a');
-        signOutLink.textContent = 'Sign out';
-        signOutLink.href = '';
-        signOutLink.addEventListener('click', () => {
-            handleSignOut();
-        });
+        const userDisplay = document.createElement('div');
+        userDisplay.id = 'user-display';
 
-        root.append(nameDisplay, avatarDisplay, signOutLink);
+        userDisplay.append(avatarDisplay, nameDisplay);
+
+
+        root.append(userDisplay);
     };
 }
 

@@ -12,10 +12,10 @@ export default function createNoteButtons(root, { handleGuessNote }) {
 function NoteButton({ note, handleGuessNote }) {
     const button = document.createElement('button');
     button.classList.add('note-button');
-    button.textContent = note === 'C5' ? 'C (high)' : note.split('')[0];
+    let noteText = note.match(/[a-zA-Z]+/g);
+    button.textContent = note === 'C5' ? 'C (high)' : noteText[0];
     button.addEventListener('click', () => {
         handleGuessNote(note);
     });
-
     return button;
 }

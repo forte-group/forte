@@ -15,14 +15,39 @@ export default function createGameGrid(root) {
         }
     }
 
-    return ({ currentGuess }) => {
-        for (let i = 0; i < currentGuess.length; i++) {
-            const cell = root.querySelector(`#column-0-${i}`);
-            console.log(cell);
-            cell.textContent = currentGuess[i].split('')[0];
+    return ({ currentGuess, correctNotes, guessedSequences, currentRow }) => {
+
+        if (currentRow < 4) {
+            for (let i = 0; i < currentGuess.length; i++) {
+                const cell = root.querySelector(`#column-${currentRow}-${i}`);
+                let noteText = currentGuess[i].match(/[a-zA-Z]+/g);
+                cell.textContent = noteText[0];
+            }
+
+            for (let i = currentGuess.length; i < 8; i++) {
+                const blankCell = root.querySelector(`#column-${currentRow}-${i}`);
+                blankCell.textContent = '';
+            }
+        }
+
+        if (guessedSequences.length) {
+            for (let i = 0; i < guessedSequences[currentRow - 1].length; i++) {
+                const completedCell = root.querySelector(`#column-${currentRow - 1}-${i}`);
+                if (correctNotes[currentRow - 1].includes(i)) {
+                    completedCell.classList.add('correct');
+                }
+            }
+        }
+
+        if (currentGuess.length === 0 && correctNotes.length === 0 && guessedSequences.length === 0 && currentRow === 0) {
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const cell = root.querySelector(`#column-${j}-${i}`);
+                    cell.textContent = '';
+                    cell.classList.remove('correct');
+                }
+            }
         }
     };
 
 }
-
-//column-currentRow-currentColumn
