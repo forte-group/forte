@@ -22,11 +22,10 @@
 }
 
 #user img {
-    height: 40px;
-    width: 40px;
-    border: solid 2px white;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
-    background-color: #72DDF7;
+    background-color: #e5582d00;
 }
 
 label img {
