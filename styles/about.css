@@ -10,6 +10,7 @@ body {
     padding: 60px 0;
     text-align: center;
     color: #090a0a;
+    font-family: monospace;
 }
 
 #team h2 {
@@ -53,10 +54,10 @@ body {
     display: block;
     position: absolute;
     bottom: 0px;
-    left: -200px;
+    left: -220px;
     transition: 0.4s;
     padding: 15px 0;
-    background: rgba(0, 0, 0, 0.479);
+    background: rgba(0, 0, 0, 0.616);
 }
 
 #team .member:hover .member-info {
@@ -106,7 +107,7 @@ body {
 }
 
 span {
-    color: rgb(209, 170, 245);
+    color: rgb(250, 144, 6);
 }
 
 #forte-link {
@@ -142,6 +143,7 @@ button.hamburger {
 
     .member {
         margin-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.822);
     }
 
     .hidden {

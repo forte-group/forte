@@ -6,8 +6,9 @@ html {
 }
 
 body {
-    background-image: url("../assets/wallpaperflare.com_wallpaper\ \(1\).jpg");
-    background-size: 800px;
+    background-image: url("../assets/wallpaperflare.com_wallpaper\ \(2\).jpg");
+    background-size: contain;
+    background-position: 50%;
 }
 
 header {
@@ -113,7 +114,8 @@ footer {
 }
 
 .correct {
-    background-color: rgb(38, 6, 80);
+    background-color: rgb(31, 190, 253);
+    color: #f185ff;
 }
 
 #user img {

@@ -6,20 +6,21 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.548);
+    background-color: rgba(0, 0, 0, 0.705);
     border: none;
     flex-direction: column;
 }
 
-footer {
-    background-color: #05050596;
-    color: #e431fc;
-}
 
 header h1 {
     color: #e431fc;
     text-align: center;
     margin-bottom: 0px;
+}
+
+header h2 {
+    color: #e431fc;
+    text-align: center;
 }
 
 #leaderboard {
