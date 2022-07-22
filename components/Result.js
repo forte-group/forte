@@ -28,7 +28,8 @@ export default function createResult(root) {
                 noteSpan.textContent = note.split('')[0] + ' (high)';
             }
             else {
-                noteSpan.textContent = note.split('')[0];
+                let noteText = note.match(/[a-zA-Z]+/g);
+                noteSpan.textContent = noteText[0];
             }
             sequenceDiv.append(noteSpan);
         }
