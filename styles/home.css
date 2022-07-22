@@ -195,6 +195,7 @@ footer {
     color: rgb(185, 18, 177);
     height: 35px;
     border: 1px solid rgb(247, 5, 235);
+    font-family: monospace;
 }
 
 .streak-div {
@@ -237,6 +238,8 @@ footer {
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
     box-shadow: 0 0 0.5em rgb(247, 5, 235), inset 0 0 0.5em rgb(247, 5, 235);
     cursor: pointer;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 #enter {
@@ -249,6 +252,8 @@ footer {
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
     box-shadow: 0 0 0.5em rgb(247, 5, 235), inset 0 0 0.5em rgb(247, 5, 235);
     cursor: pointer;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 #result {
