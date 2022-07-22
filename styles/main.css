@@ -88,4 +88,6 @@ button.hamburger {
 
 .menu-option {
     color: rgb(245, 207, 250);
+    font-family: monospace;
+    font-size: 20px;
 }
