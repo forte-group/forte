@@ -9,6 +9,8 @@ header {
     background-color: rgba(0, 0, 0, 0.705);
     border: none;
     flex-direction: column;
+    font-family: monospace;
+    font-size: larger;
 }
 
 
@@ -29,6 +31,7 @@ header h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: fit-content;
 }
 
 #leaders {
@@ -42,6 +45,7 @@ header h2 {
 main {
     display: flex;
     justify-content: center;
+    min-height: fit-content;
 }
 
 .avatar {
@@ -96,6 +100,7 @@ ul {
     height: 40px;
     width: 100px;
     text-shadow: 0 0 0.3em rgb(247, 5, 235);
+    box-shadow: 0 0 0.5em rgb(247, 5, 235), inset 0 0 0.5em rgb(247, 5, 235);
     cursor: pointer;
 }
 

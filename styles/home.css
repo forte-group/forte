@@ -80,7 +80,7 @@ footer {
     background-color: rgb(5, 5, 5);
     border-radius: 4px;
     font-weight: bolder;
-    border: 1px solid rgb(95, 3, 107);
+    border: 2px solid rgb(170, 6, 192);
 }
 
 .note-button:active {
@@ -235,6 +235,7 @@ footer {
     height: 40px;
     width: 100px;
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
+    box-shadow: 0 0 0.5em rgb(247, 5, 235), inset 0 0 0.5em rgb(247, 5, 235);
     cursor: pointer;
 }
 
@@ -246,6 +247,7 @@ footer {
     height: 40px;
     width: 100px;
     text-shadow: 0 0 0.5em rgb(247, 5, 235);
+    box-shadow: 0 0 0.5em rgb(247, 5, 235), inset 0 0 0.5em rgb(247, 5, 235);
     cursor: pointer;
 }
 

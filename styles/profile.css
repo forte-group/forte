@@ -70,11 +70,15 @@ label img {
 }
 
 .profile-form button {
-    width: fit-content;
-    align-self: center;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    ;
+    color: #05d8fd;
+    background-color: black;
+    border-radius: 5px;
+    border: 2px solid rgb(5, 219, 247);
+    height: 40px;
+    width: 100px;
+    text-shadow: 0 0 0.5em rgb(5, 247, 247);
+    cursor: pointer;
+    box-shadow: 0 0 0.5em rgb(5, 247, 247), inset 0 0 0.5em rgb(5, 247, 247);
 }
 
 body {
@@ -100,6 +104,15 @@ footer {
     height: 100px;
     margin: 0 auto;
 }
+
+#username {
+    background-color: black;
+    color: #e431fc;
+}
+
+
+
+
 
 /* shan css for hamburger menu starts here */
 h1 {
