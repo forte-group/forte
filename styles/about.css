@@ -10,6 +10,7 @@ body {
     padding: 60px 0;
     text-align: center;
     color: #090a0a;
+    font-family: monospace;
 }
 
 #team h2 {
@@ -42,21 +43,21 @@ body {
     margin-right: 15px;
     position: relative;
     overflow: hidden;
-    background-color: #0a06003a;
-    border: 3px solid #0069D8;
+    background-color: #0a0600b4;
+    border: 3px solid #0d6fd8;
     padding: 10px;
     border-radius: 15px 15px 15px 15px;
-    box-shadow: inset 0px 1px 20px 5px rgba(30, 6, 241, 0.4), 0px 1px 20px 0px rgba(30, 6, 241, 0.4);
+    box-shadow: inset 0px 1px 15px 5px rgba(6, 135, 241, 0.4), 5px 5px 20px 5px rgba(6, 174, 241, 0.4);
 }
 
 #team .member .member-info {
     display: block;
     position: absolute;
     bottom: 0px;
-    left: -200px;
+    left: -220px;
     transition: 0.4s;
     padding: 15px 0;
-    background: rgba(0, 0, 0, 0.479);
+    background: rgba(0, 0, 0, 0.616);
 }
 
 #team .member:hover .member-info {
@@ -87,7 +88,7 @@ body {
 }
 
 #team .member .social-links a:hover {
-    color: #ff07b5;
+    color: #07cdff;
 }
 
 #team .member .social-links i {
@@ -106,7 +107,7 @@ body {
 }
 
 span {
-    color: rgb(209, 170, 245);
+    color: rgb(250, 144, 6);
 }
 
 #forte-link {
@@ -135,6 +136,7 @@ button.hamburger {
     font-size: 20px;
 }
 
+
 @media (max-width: 600px) {
     .row {
         display: grid;
@@ -142,6 +144,11 @@ button.hamburger {
 
     .member {
         margin-bottom: 10px;
+        background-color: black;
+    }
+
+    span, .social-links {
+        background-color: #090a0a;
     }
 
     .hidden {
