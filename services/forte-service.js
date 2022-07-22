@@ -1,5 +1,13 @@
 import { checkResponse, client } from './client.js';
 
+export async function getStreakCount() {
+    const response = await client
+        .from ('leaderboard')
+        .select('*', { count: 'exact' });
+
+    return response.count;
+}
+
 export async function getLongestStreaks(length) {
     const response = await client
         .from('leaderboard')

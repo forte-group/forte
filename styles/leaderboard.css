@@ -32,6 +32,9 @@ header h2 {
     flex-direction: column;
     align-items: center;
     min-height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 70px;
+    overflow: scroll;
 }
 
 #leaders {
@@ -39,7 +42,8 @@ header h2 {
 }
 
 #scores {
-    grid-area: scores
+    grid-area: scores;
+    margin-bottom: 16px;
 }
 
 main {
@@ -90,6 +94,14 @@ ul {
 .score {
     color: #ff04d5;
     font-size: 30px;
+}
+
+#buttons-div {
+    margin-top: 8px;
+    display: flex;
+    width: 230px;
+    justify-content: center;
+    gap: 20px;
 }
 
 #buttons-div button {
