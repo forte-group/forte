@@ -1,7 +1,7 @@
 import { getUser, signOut, getProfile } from '../services/auth-service.js';
 import { protectPage } from '../utils.js';
 import createUser from '../components/User.js';
-import { getLongestStreaks } from '../services/forte-service.js';
+import { getLongestStreaks, getStreakCount } from '../services/forte-service.js';
 import createLeaderboard from '../components/Leaderboard.js';
 import createPaging from '../components/Paging.js';
 import createNavBar from '../components/Nav.js';
@@ -12,6 +12,7 @@ let profile = null;
 let streaks = [];
 let length = 10;
 let menuOpen = false;
+let streakCount = 0;
 
 //hamburger menu js
 
@@ -25,6 +26,7 @@ async function handlePageLoad() {
     profile = await getProfile();
 
     streaks = await getLongestStreaks(length);
+    streakCount = await getStreakCount();
 
     display();
 }
@@ -52,7 +54,7 @@ function handleMenuToggle(menu, closeIcon, menuIcon) {
 }
 
 async function handleExpand() {
-    length += 10;
+    if (length < streakCount) length += 10;
     streaks = await getLongestStreaks(length);
     display();
 }
@@ -77,7 +79,7 @@ function display() {
     User({ user, profile });
     NavBar({ menuOpen });
     Leaderboard({ streaks });
-    Paging({ length });
+    Paging({ length, streakCount });
 }
 
 handlePageLoad();
