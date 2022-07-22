@@ -11,6 +11,11 @@ header {
     flex-direction: column;
 }
 
+footer {
+    background-color: #05050596;
+    color: #e431fc;
+}
+
 header h1 {
     color: #e431fc;
     text-align: center;
@@ -60,7 +65,7 @@ ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
 }
 
@@ -73,6 +78,8 @@ ul {
 .leader-name {
     color: #39E1EB;
     font-size: large;
+    font-family: monospace;
+    font-size: 20px;
 }
 
 .score {
