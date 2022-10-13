@@ -1,70 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" type="image/x-icon" href="../assets/lollo.jpg" />
-    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap"
+    />
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/profile.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Forte</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
+      <ul class="menu">
+        <li><a href="../" class="menu-option">Play</a></li>
+        <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
+        <li><a href="../About/" class="menu-option">About</a></li>
+        <li><a href="../Profile/" class="menu-option">Profile</a></li>
+      </ul>
 
-        <ul class="menu">
-            <li><a href="../" class="menu-option">Play</a></li>
-            <li><a href="../leaderboard" class="menu-option">Leaderboard</a></li>
-            <li><a href="../About/" class="menu-option">About</a></li>
-            <li><a href="../Profile/" class="menu-option">Profile</a></li>
+      <button class="hamburger">
+        <i class="material-icons" id="display-menu">menu</i>
+        <i class="material-icons" id="close-menu">close</i>
+      </button>
 
-        </ul>
+      <img id="forte-img" src="../assets/lollo.jpg" />
 
-        <button class="hamburger">
-            <i class="material-icons" id="display-menu">menu</i>
-            <i class="material-icons" id="close-menu">close</i>
-        </button>
-
-        <img id="forte-img" src="../assets/lollo.jpg">
-
-        <div id="user"></div>
-
+      <div id="user"></div>
     </header>
 
     <main>
-        <h1>Customize Your Profile!</h1>
-        <section class="profile-update">
-            <form class="profile-form">
-                <label>
-                    username:
-                    <input required id="username" name="username">
-                </label>
-                <label>
-                    avatar:
-                    <input type="file" id="file-input" name="avatar">
-                </label>
-                <label>
-                    image preview:
-                    <img class="avatar-preview"
-                        src="https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png">
-                </label>
-                <button>submit</button>
-            </form>
-        </section>
-
+      <h1>Customize Your Profile!</h1>
+      <section class="profile-update">
+        <form class="profile-form">
+          <label>
+            username:
+            <input required id="username" name="username" />
+          </label>
+          <label>
+            avatar:
+            <input type="file" id="file-input" name="avatar" />
+          </label>
+          <label>
+            image preview:
+            <img
+              class="avatar-preview"
+              src="https://vzknktjrbugxtqzlomdz.supabase.co/storage/v1/object/public/avatars/f7d0a9e4-b59d-41a4-8f0b-a1ea8286f40c/musician-removebg-preview.png"
+            />
+          </label>
+          <button>submit</button>
+        </form>
+      </section>
     </main>
 
-
     <script type="module" src="./profile.js"></script>
-</body>
-
+  </body>
 </html>
